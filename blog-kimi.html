@@ -8,24 +8,124 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         .article-content {
-            max-width: 800px;
+            max-width: 850px;
             margin: 120px auto;
             padding: 0 2rem;
         }
         .article-header {
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 2rem;
+        }
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .author-img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+        .hero-image {
+            width: 100%;
+            border-radius: 24px;
+            margin-bottom: 3.5rem;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+            border: 1px solid var(--glass-border);
+        }
+        .article-body h2 {
+            font-size: 2.2rem;
+            margin: 4rem 0 1.5rem;
+            color: var(--primary);
+            background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            letter-spacing: -0.02em;
         }
         .article-body p {
             font-size: 1.2rem;
-            line-height: 2;
+            line-height: 1.85;
             color: var(--text-secondary);
             margin-bottom: 2rem;
+        }
+        .article-body ul {
+            margin: 2.5rem 0;
+            padding-left: 1.5rem;
+        }
+        .article-body li {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.2rem;
+            list-style: none;
+            position: relative;
+        }
+        .article-body li::before {
+            content: "→";
+            color: #4facfe;
+            font-weight: bold;
+            position: absolute;
+            left: -1.8rem;
+        }
+        .video-cta {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 3.5rem;
+            border-radius: 28px;
+            text-align: center;
+            margin-top: 6rem;
+            backdrop-filter: blur(20px);
+            box-shadow: var(--glass-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        .video-cta::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(to right, #ff0000, #ff4b2b);
+        }
+        .video-cta h3 {
+            font-size: 2rem;
+            margin-bottom: 1.2rem;
+            color: white;
+        }
+        .video-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: linear-gradient(45deg, #ff0000, #ff4b2b);
+            color: white;
+            padding: 1.3rem 2.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            margin-top: 2rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.2);
+        }
+        .video-button:hover {
+            transform: scale(1.08) translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 0, 0, 0.4);
         }
         .back-link {
             display: inline-block;
             margin-bottom: 2rem;
             color: #4facfe;
             text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        .back-link:hover {
+            opacity: 0.8;
         }
     </style>
 </head>
@@ -44,11 +144,22 @@
 
     <article class="article-content">
         <a href="index.html#blog" class="back-link">&larr; Volver al blog</a>
+        
         <header class="article-header">
             <div class="badge">IA</div>
             <h1>Kimi AI: La mejor Inteligencia Artificial gratuita para productividad</h1>
             <p class="subtitle">Análisis de las potentes funciones agénticas y de ofimática que puedes usar sin pagar un centavo.</p>
+            
+            <div class="author-info">
+                <img src="perfil.jpg" alt="Simón Diaz" class="author-img">
+                <div>
+                    <strong>Por Simón Diaz</strong><br>
+                    <span>25 de Abril, 2026 • 5 min de lectura</span>
+                </div>
+            </div>
         </header>
+
+        <img src="kimi-hero.png" alt="Productividad con Kimi AI" class="hero-image">
         
         <div class="article-body">
             <p>Kimi AI se ha posicionado como una de las herramientas de Inteligencia Artificial con mejor relación beneficio-costo del mercado actual. Lo que la hace destacar frente a gigantes como ChatGPT o Claude es su enfoque en el trabajo agéntico gratuito, permitiendo realizar tareas complejas de ofimática y procesamiento de datos que normalmente requerirían suscripciones premium.</p>
@@ -69,6 +180,15 @@
             <p>Otra joya oculta es su función de <strong>Deep Research</strong>. Kimi puede navegar por la web y realizar investigaciones exhaustivas sobre temas específicos, procesando múltiples fuentes para entregarte un reporte consolidado. Es como tener un asistente de investigación trabajando para ti las 24 horas.</p>
 
             <p>En conclusión, si buscas una alternativa potente, gratuita y centrada en la productividad real, Kimi AI es una opción obligatoria en tu arsenal digital. Aunque en momentos de alta demanda el sistema puede saturarse, los resultados que ofrece en tareas de análisis y generación de documentos son, sencillamente, de otro nivel.</p>
+        </div>
+
+        <div class="video-cta">
+            <h3>¿Quieres ver a Kimi en acción?</h3>
+            <p>He preparado un tutorial completo donde te muestro paso a paso cómo configurar estas herramientas y sacarle el máximo provecho.</p>
+            <a href="https://www.youtube.com/watch?v=yqERhfzfcjo" target="_blank" class="video-button">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                Ver Video Completo
+            </a>
         </div>
     </article>
 
