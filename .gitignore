@@ -3,4 +3,5 @@ __pycache__/
 *.json
 *.txt
 *.png
+!favicon.png
 .gemini/
