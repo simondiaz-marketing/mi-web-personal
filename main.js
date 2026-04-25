@@ -106,11 +106,19 @@ cards.forEach(card => {
 // Smooth scroll for nav links
 document.querySelectorAll('nav a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const section = document.querySelector(this.getAttribute('href'));
-        section.scrollIntoView({
-            behavior: 'smooth'
-        });
+        const href = this.getAttribute('href');
+        
+        // Only prevent default if it's an internal link on the same page
+        if (href.startsWith('#')) {
+            e.preventDefault();
+            const section = document.querySelector(href);
+            if (section) {
+                section.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        }
+        // If it's a link to another page (like index.html#blog), let the browser handle it
     });
 });
 
