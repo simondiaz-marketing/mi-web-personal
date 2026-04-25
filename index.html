@@ -10,29 +10,66 @@
 <body>
     <div id="canvas-container"></div>
 
-    <header>
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">SIMÓN DIAZ</div>
+            <ul class="nav-links">
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#about">Sobre Mí</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#videos">Videos</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="home">
         <div class="container">
             <h1 class="floating">SIMÓN DIAZ</h1>
-            <p class="subtitle">Domina la IA y el Marketing Digital sin rodeos. Sin más líos, vamos a la tecnología.</p>
-            <button class="cta-button" onclick="document.getElementById('videos').scrollIntoView({behavior: 'smooth'})">Ver Tutoriales</button>
+            <p class="subtitle">Estratega en Inteligencia Artificial y Marketing Digital. Sin más líos, vamos a la tecnología.</p>
+            <button class="cta-button" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">Empezar</button>
         </div>
     </header>
 
     <section id="about">
+        <div class="container about-grid">
+            <div class="about-image">
+                <img src="perfil.jpg" alt="Simón Diaz" class="profile-img">
+            </div>
+            <div class="about-text">
+                <h2>Sobre Mí</h2>
+                <p>Hola, soy Simón Diaz. Me apasiona simplificar la tecnología compleja para que cualquier emprendedor o profesional pueda escalar su negocio.</p>
+                <p>Con años de experiencia en marketing digital y ahora especializado en la revolución de la IA, mi objetivo es darte las herramientas prácticas que realmente funcionan, sin perder el tiempo en rodeos técnicos innecesarios.</p>
+                <div class="stats">
+                    <div class="stat-item"><span>+100</span><p>Tutoriales</p></div>
+                    <div class="stat-item"><span>IA</span><p>Estratega</p></div>
+                    <div class="stat-item"><span>Meta</span><p>Expert</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog">
         <div class="container">
-            <h2>Sobre el Canal</h2>
+            <h2>Blog: El Futuro es Hoy</h2>
             <div class="grid">
-                <div class="card">
-                    <h3>Enfoque Práctico</h3>
-                    <p>Tutoriales directos al punto. Si algo se puede hacer en 5 minutos, no tardamos 20. La tecnología es para facilitarte la vida.</p>
+                <div class="card blog-card">
+                    <div class="badge">IA</div>
+                    <h3>Kimi AI: ¿Mejor que ChatGPT?</h3>
+                    <p>Exploramos las capacidades de Kimi AI, una herramienta que está desafiando lo que conocíamos sobre modelos de lenguaje gratuitos. Analizamos su razonamiento y utilidad práctica para el marketing.</p>
+                    <a href="#" class="read-more">Leer más &rarr;</a>
                 </div>
-                <div class="card">
-                    <h3>Honestidad Total</h3>
-                    <p>Analizamos herramientas reales, sus fallos y sus "alucinaciones". Sin patrocinios que nublen el juicio.</p>
+                <div class="card blog-card">
+                    <div class="badge">Seguridad</div>
+                    <h3>Por qué necesitas una VPN en 2026</h3>
+                    <p>La seguridad digital no es negociable. Te explico por qué una VPN es tu primera línea de defensa contra el rastreo y cómo elegir la mejor sin sacrificar velocidad.</p>
+                    <a href="#" class="read-more">Leer más &rarr;</a>
                 </div>
-                <div class="card">
-                    <h3>Futuro Digital</h3>
-                    <p>Desde Sora hasta ChatGPT, exploramos cómo la IA está cambiando la forma en que trabajamos y creamos.</p>
+                <div class="card blog-card">
+                    <div class="badge">Marketing</div>
+                    <h3>Automatización en Meta Business</h3>
+                    <p>Cómo dejar que los algoritmos trabajen por ti. Descubre la configuración exacta para que tus anuncios de Instagram y Facebook se optimicen mientras duermes.</p>
+                    <a href="#" class="read-more">Leer más &rarr;</a>
                 </div>
             </div>
         </div>

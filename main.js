@@ -47,6 +47,38 @@ window.addEventListener('resize', () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
+// Add hover effect and smooth scroll
+cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = (y - centerY) / 10;
+        const rotateY = (centerX - x) / 10;
+        
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+    });
+    
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'rotateX(0) rotateY(0) scale(1)';
+    });
+});
+
+// Smooth scroll for nav links
+document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const section = document.querySelector(this.getAttribute('href'));
+        section.scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
 // Mouse movement effect
 document.addEventListener('mousemove', (event) => {
     const mouseX = (event.clientX / window.innerWidth) - 0.5;
