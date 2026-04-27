@@ -9,11 +9,22 @@ export class PaginationManager {
         if (!this.container) return;
 
         try {
-            const response = await fetch('/data/blog-posts.json');
+            // Try absolute root first
+            let response = await fetch('/data/blog-posts.json');
+            if (!response.ok) throw new Error('Root fetch failed');
             this.blogPosts = await response.json();
-            this.render();
         } catch (e) {
-            console.error('Error initializing pagination:', e);
+            try {
+                // Fallback for subfolders
+                let response = await fetch('../data/blog-posts.json');
+                this.blogPosts = await response.json();
+            } catch (err) {
+                console.error('Error initializing pagination:', err);
+            }
+        }
+        
+        if (this.blogPosts.length > 0) {
+            this.render();
         }
     }
 
