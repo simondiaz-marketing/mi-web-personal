@@ -151,3 +151,15 @@ document.querySelectorAll('section').forEach(section => {
     section.style.transition = 'all 1s ease-out';
     observer.observe(section);
 });
+
+// Secure Email Decryption (Anti-Spam)
+document.querySelectorAll('.secure-email').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const user = link.getAttribute('data-u');
+        const domain = link.getAttribute('data-d');
+        if (user && domain) {
+            window.location.href = `mailto:${user}@${domain}`;
+        }
+    });
+});

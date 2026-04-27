@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simón Diaz | Divulgador de IA y Marketing Digital</title>
+    <title>PREVIEW | Simón Diaz | Divulgador de IA y Marketing Digital</title>
     <meta name="description" content="Simón Diaz | Divulgador de IA y Marketing Digital. Aprende a dominar recursos digitales y herramientas de Inteligencia Artificial de forma simple y práctica.">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Simón Diaz | Divulgador de IA y Marketing Digital">
     <meta property="og:description" content="Aprende a dominar recursos digitales y herramientas de Inteligencia Artificial de forma simple y práctica.">
-    <meta property="og:image" content="assets/img/perfil.jpg">
+    <meta property="og:image" content="perfil.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:title" content="Simón Diaz | Divulgador de IA y Marketing Digital">
     <meta property="twitter:description" content="Aprende a dominar recursos digitales y herramientas de Inteligencia Artificial de forma simple y práctica.">
-    <meta property="twitter:image" content="assets/img/perfil.jpg">
+    <meta property="twitter:image" content="perfil.jpg">
 
-    <link rel="icon" type="image/png" href="assets/img/favicon.png">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="styles-preview.css">
 </head>
 <body>
     <div id="canvas-container"></div>
@@ -48,7 +48,7 @@
     <section id="about">
         <div class="container about-grid">
             <div class="about-image">
-                <img src="assets/img/perfil.jpg" alt="Simón Diaz" class="profile-img">
+                <img src="perfil.jpg" alt="Simón Diaz" class="profile-img">
             </div>
             <div class="about-text">
                 <h2>Sobre Mí</h2>
@@ -68,16 +68,7 @@
         <div class="container">
             <h2>Blog: Artículos sobre IA y Tecnología Digital</h2>
             <div class="grid">
-                <a href="blog/blog-notebooklm-2026.html" class="card-link">
-                    <div class="card blog-card">
-                        <div class="badge">IA</div>
-                        <h3>Guía NotebookLM 2026</h3>
-                        <p>Aprende a dominar NotebookLM: desde organizar cuadernos con carpetas hasta crear productos digitales con Antigravity y YouTube.</p>
-                        <span class="read-more">Leer guía completa &rarr;</span>
-                    </div>
-                </a>
-
-                <a href="blog/blog-kimi.html" class="card-link">
+                <a href="blog-kimi.html" class="card-link">
                     <div class="card blog-card">
                         <div class="badge">IA</div>
                         <h3>Kimi AI: ¿Mejor que ChatGPT?</h3>
@@ -85,7 +76,7 @@
                         <span class="read-more">Leer artículo completo &rarr;</span>
                     </div>
                 </a>
-                <a href="blog/blog-vpn.html" class="card-link">
+                <a href="blog-vpn.html" class="card-link">
                     <div class="card blog-card">
                         <div class="badge">Seguridad</div>
                         <h3>Por qué necesitas una VPN en 2026</h3>
@@ -93,7 +84,7 @@
                         <span class="read-more">Leer artículo completo &rarr;</span>
                     </div>
                 </a>
-                <a href="blog/blog-meta.html" class="card-link">
+                <a href="blog-meta.html" class="card-link">
                     <div class="card blog-card">
                         <div class="badge">Marketing</div>
                         <h3>Automatización en Meta Business</h3>
@@ -105,20 +96,34 @@
         </div>
     </section>
 
+    <section id="newsletter">
+        <div class="container newsletter-grid">
+            <div class="newsletter-text">
+                <div class="badge" style="background: rgba(0, 242, 255, 0.1); border-color: var(--accent-primary); color: var(--accent-primary);">NEWSLETTER OFICIAL</div>
+                <h2>Recibí novedades de Marketing Digital [GRATIS]</h2>
+                <p>Únete a miles de alumnos que reciben todos los meses las últimas tendencias, ideas de negocio, nuevas herramientas y mucha info útil para tu emprendimiento.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('¡Simulación de suscripción exitosa!');">
+                    <div class="form-group">
+                        <input type="text" placeholder="Nombre" required>
+                        <input type="email" placeholder="Correo electrónico" required>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="privacy" required>
+                        <label for="privacy">Acepto recibir noticias y los <a href="#">términos de privacidad</a>.</label>
+                    </div>
+                    <button type="submit" class="cta-button">Suscribirme</button>
+                </form>
+            </div>
+            <div class="newsletter-visual">
+                <img src="newsletter_visual.png" alt="Newsletter Visual" class="floating">
+            </div>
+        </div>
+    </section>
+
     <section id="videos">
         <div class="container">
             <h2>Tutoriales Destacados</h2>
             <div class="grid">
-                <a href="https://www.youtube.com/watch?v=N6sGuI5by5w" target="_blank" class="card-link">
-                    <div class="card video-card" data-video-id="N6sGuI5by5w">
-                        <div class="video-container">
-                            <img src="https://img.youtube.com/vi/N6sGuI5by5w/mqdefault.jpg" alt="NotebookLM 2026">
-                        </div>
-                        <h3>Cómo usar NotebookLM en 2026</h3>
-                        <p>Guía definitiva para aprender, organizar y crear con IA.</p>
-                    </div>
-                </a>
-
                 <a href="https://www.youtube.com/watch?v=wnXqmfzwsbc" target="_blank" class="card-link">
                     <div class="card video-card" data-video-id="wnXqmfzwsbc">
                         <div class="video-container">
@@ -196,6 +201,6 @@
         </div>
     </footer>
 
-    <script type="module" src="assets/js/main.js"></script>
+    <script type="module" src="main.js"></script>
 </body>
 </html>

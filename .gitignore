@@ -5,3 +5,4 @@ __pycache__/
 *.png
 !favicon.png
 .gemini/
+*.code-workspace
