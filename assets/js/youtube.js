@@ -32,16 +32,22 @@ async function fetchLatestVideos() {
 }
 
 function isShort(duration) {
-    // PT#M#S -> if it doesn't have 'M' or 'H', and 'S' is < 60, it's a short
-    // Simple check: if it contains 'H' or 'M', it's definitely > 60s (unless PT0M... which is rare)
-    if (duration.includes('H') || duration.includes('M')) {
-        // Double check for PT0M#S
-        if (duration.includes('M0S') && !duration.includes('H')) return true;
-        return false;
-    }
-    // Only seconds (PTS#S)
-    const seconds = parseInt(duration.match(/\d+/)[0]);
-    return seconds < 60;
+    // YouTube duration format is ISO 8601 (e.g., PT1M2S, PT45S)
+    // We want to filter out videos shorter than 90 seconds.
+    
+    // If it has hours, it's definitely not a short
+    if (duration.includes('H')) return false;
+
+    // Extract minutes and seconds
+    const minutesMatch = duration.match(/(\d+)M/);
+    const secondsMatch = duration.match(/(\d+)S/);
+    
+    const minutes = minutesMatch ? parseInt(minutesMatch[1]) : 0;
+    const seconds = secondsMatch ? parseInt(secondsMatch[1]) : 0;
+    
+    const totalSeconds = (minutes * 60) + seconds;
+    
+    return totalSeconds < 90;
 }
 
 function renderVideos(videos) {
