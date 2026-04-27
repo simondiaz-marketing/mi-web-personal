@@ -1,4 +1,6 @@
 import * as THREE from 'https://cdn.skypack.dev/three@0.132.2';
+import { SearchManager } from './search.js';
+import { PaginationManager } from './pagination.js';
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -42,6 +44,12 @@ function animate() {
 }
 
 animate();
+
+// Initialize Search and Pagination
+document.addEventListener('DOMContentLoaded', () => {
+    new SearchManager();
+    new PaginationManager();
+});
 
 // Resize handler
 window.addEventListener('resize', () => {

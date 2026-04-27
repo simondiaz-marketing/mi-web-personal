@@ -30,9 +30,23 @@
             <ul class="nav-links">
                 <li><a href="../index.html#home">Inicio</a></li>
                 <li><a href="../index.html#blog">Volver al Blog</a></li>
+                <li class="search-trigger-nav"><a href="javascript:void(0)" id="search-nav-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></a></li>
             </ul>
         </div>
     </nav>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="search-overlay">
+        <div class="search-container">
+            <div class="search-header">
+                <input type="text" id="search-input" placeholder="Buscar artículos o videos..." autocomplete="off">
+                <button id="close-search">&times;</button>
+            </div>
+            <div id="search-results" class="search-results">
+                <!-- Dynamic results here -->
+            </div>
+        </div>
+    </div>
 
     <article class="article-content">
         <a href="../index.html#blog" class="back-link">&larr; Volver al blog</a>
@@ -172,6 +186,8 @@
             </a>
         </div>
     </article>
+
+    <div id="pagination-container" class="container"></div>
 
     <footer>
         <div class="container" style="text-align: center; padding: 2rem 0; border-top: 1px solid var(--glass-border); margin-top: 4rem;">

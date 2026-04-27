@@ -33,9 +33,23 @@
                 <li><a href="#blog">Blog</a></li>
                 <li><a href="#videos">Videos</a></li>
                 <li><a href="#contact">Contacto</a></li>
+                <li class="search-trigger-nav"><a href="javascript:void(0)" id="search-nav-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></a></li>
             </ul>
         </div>
     </nav>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="search-overlay">
+        <div class="search-container">
+            <div class="search-header">
+                <input type="text" id="search-input" placeholder="Buscar artículos o videos..." autocomplete="off">
+                <button id="close-search">&times;</button>
+            </div>
+            <div id="search-results" class="search-results">
+                <!-- Dynamic results here -->
+            </div>
+        </div>
+    </div>
 
     <header id="home">
         <div class="container">
@@ -67,6 +81,14 @@
     <section id="blog">
         <div class="container">
             <h2>Blog: Artículos sobre IA y Tecnología Digital</h2>
+            
+            <div class="blog-search-trigger">
+                <button id="search-blog-btn" class="blog-search-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    <span>Buscar artículos o videos...</span>
+                </button>
+            </div>
+
             <div class="grid">
                 <a href="blog/blog-notebooklm-2026.html" class="card-link">
                     <div class="card blog-card">
