@@ -51,9 +51,8 @@ window.addEventListener('resize', () => {
 });
 
 // Interaction Logic
-const cards = document.querySelectorAll('.card');
-
-cards.forEach(card => {
+// Reusable Card Interaction Logic
+window.initCardEffects = function(card) {
     card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
@@ -86,7 +85,6 @@ cards.forEach(card => {
                 iframe.allow = "autoplay; encrypted-media";
                 container.appendChild(iframe);
                 
-                // Show iframe after a small delay to ensure it starts loading
                 setTimeout(() => {
                     if (iframe) iframe.style.opacity = '1';
                 }, 500);
@@ -101,7 +99,11 @@ cards.forEach(card => {
             }
         });
     }
-});
+};
+
+// Initialize existing cards (Blog, etc)
+document.querySelectorAll('.card').forEach(card => window.initCardEffects(card));
+
 
 // Smooth scroll for nav links
 document.querySelectorAll('nav a').forEach(anchor => {
