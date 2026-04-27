@@ -15,20 +15,19 @@ export class SearchManager {
     async init() {
         if (!this.overlay) return;
 
-        // Fetch blog posts - Using a more robust path
+        // Fetch blog posts - Using absolute path from origin
         try {
-            // Try absolute root first, then relative if that fails
-            let response = await fetch('/data/blog-posts.json');
-            if (!response.ok) throw new Error('Root fetch failed');
+            const dataPath = window.location.origin + '/data/blog-posts.json';
+            const response = await fetch(dataPath);
+            if (!response.ok) throw new Error('Fetch failed');
             this.blogPosts = await response.json();
         } catch (e) {
+            console.warn('Could not load blog posts for search:', e);
+            // Last resort fallback
             try {
-                // Fallback for subfolders or different base paths
-                let response = await fetch('../data/blog-posts.json');
+                const response = await fetch('../data/blog-posts.json');
                 this.blogPosts = await response.json();
-            } catch (err) {
-                console.warn('Could not load blog posts for search:', err);
-            }
+            } catch (err) {}
         }
 
         // Try to get videos from the YouTube global state if available

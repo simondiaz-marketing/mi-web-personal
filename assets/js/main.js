@@ -46,10 +46,16 @@ function animate() {
 animate();
 
 // Initialize Search and Pagination
-document.addEventListener('DOMContentLoaded', () => {
+function initApp() {
     new SearchManager();
     new PaginationManager();
-});
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initApp);
+} else {
+    initApp();
+}
 
 // Resize handler
 window.addEventListener('resize', () => {
