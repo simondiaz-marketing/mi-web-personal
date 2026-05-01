@@ -1,0 +1,17 @@
+# www.robotstxt.org/
+# Control de rastreadores para Simón Diaz
+
+User-agent: *
+Allow: /
+Disallow: /skills/
+Disallow: /.git/
+Disallow: /.venv/
+Disallow: /brand_query.json
+Disallow: /query_result.json
+
+# Evitar que bots de entrenamiento de IA procesen el sitio (opcional pero recomendado)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /

@@ -1,8 +1,26 @@
+# Environments
 .venv/
 __pycache__/
-*.json
-*.txt
-*.png
-!favicon.png
 .gemini/
+
+# IDEs and Tools
 *.code-workspace
+.vscode/
+.idea/
+
+# Deployment
+.vercel/
+.cloudflare/
+
+# Logs and Temp
+*.log
+tmp/
+
+# Data and assets (keep original logic but more specific)
+# Note: User had *.json and *.txt ignored, but we need vercel.json and _headers.
+# We'll allow specific important files.
+!vercel.json
+!package.json
+!_headers
+!_redirects
+!favicon.png

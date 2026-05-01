@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Cómo usar NotebookLM en 2026: Guía Completa",
+    "url": "blog/blog-notebooklm-2026.html",
+    "badge": "IA",
+    "description": "Aprende a dominar NotebookLM: desde organizar cuadernos con carpetas hasta crear productos digitales con Antigravity y YouTube."
+  },
+  {
+    "title": "Kimi AI: ¿Mejor que ChatGPT?",
+    "url": "blog/blog-kimi.html",
+    "badge": "IA",
+    "description": "Exploramos las capacidades de Kimi AI, una herramienta que está desafiando lo que conocíamos sobre modelos de lenguaje gratuitos."
+  },
+  {
+    "title": "Por qué necesitas una VPN en 2026",
+    "url": "blog/blog-vpn.html",
+    "badge": "Seguridad",
+    "description": "La seguridad digital no es negociable. Te explico por qué una VPN es tu primera línea de defensa contra el rastreo."
+  },
+  {
+    "title": "Automatización en Meta Business",
+    "url": "blog/blog-meta.html",
+    "badge": "Marketing",
+    "description": "Cómo dejar que los algoritmos trabajen por ti. Descubre la configuración exacta para que tus anuncios se optimicen."
+  }
+]
