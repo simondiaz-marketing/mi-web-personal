@@ -23,11 +23,16 @@ export class SearchManager {
             this.blogPosts = await response.json();
         } catch (e) {
             console.warn('Could not load blog posts for search:', e);
-            // Last resort fallback
+            // Last resort fallbacks
             try {
-                const response = await fetch('../data/blog-posts.json');
+                const response = await fetch('data/blog-posts.json');
                 this.blogPosts = await response.json();
-            } catch (err) {}
+            } catch (err1) {
+                try {
+                    const response = await fetch('../data/blog-posts.json');
+                    this.blogPosts = await response.json();
+                } catch (err2) {}
+            }
         }
 
         // Try to get videos from the YouTube global state if available
@@ -73,21 +78,60 @@ export class SearchManager {
         document.body.style.overflow = '';
     }
 
-    getYouTubeVideos() {
+    async getYouTubeVideos() {
         this.youtubeVideos = []; // Clear to avoid duplicates
         const videoCards = document.querySelectorAll('.video-card');
-        videoCards.forEach(card => {
-            const title = card.querySelector('h3')?.textContent;
-            const url = card.closest('a')?.href;
-            if (title && url) {
-                this.youtubeVideos.push({
-                    title,
+        if (videoCards.length > 0) {
+            videoCards.forEach(card => {
+                const title = card.querySelector('h3')?.textContent;
+                const url = card.closest('a')?.href;
+                if (title && url) {
+                    this.youtubeVideos.push({
+                        title,
+                        description: 'Video Tutorial',
+                        url,
+                        badge: 'Video'
+                    });
+                }
+            });
+        } else {
+            try {
+                const dataPath = window.location.origin + '/data/sources_youtube.json';
+                const response = await fetch(dataPath);
+                if (!response.ok) throw new Error('Fetch failed');
+                const videos = await response.json();
+                this.youtubeVideos = videos.map(video => ({
+                    title: video.title,
                     description: 'Video Tutorial',
-                    url,
+                    url: video.url || `https://www.youtube.com/watch?v=${video.id}`,
                     badge: 'Video'
-                });
+                })).slice(0, 15);
+            } catch (e) {
+                try {
+                    const response = await fetch('data/sources_youtube.json');
+                    const videos = await response.json();
+                    this.youtubeVideos = videos.map(video => ({
+                        title: video.title,
+                        description: 'Video Tutorial',
+                        url: video.url || `https://www.youtube.com/watch?v=${video.id}`,
+                        badge: 'Video'
+                    })).slice(0, 15);
+                } catch (err1) {
+                    try {
+                        const response = await fetch('../data/sources_youtube.json');
+                        const videos = await response.json();
+                        this.youtubeVideos = videos.map(video => ({
+                            title: video.title,
+                            description: 'Video Tutorial',
+                            url: video.url || `https://www.youtube.com/watch?v=${video.id}`,
+                            badge: 'Video'
+                        })).slice(0, 15);
+                    } catch (err2) {
+                        console.warn('Could not load YouTube videos for search:', err2);
+                    }
+                }
             }
-        });
+        }
     }
 
     performSearch() {

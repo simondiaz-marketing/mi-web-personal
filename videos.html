@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simón Diaz | Divulgador de IA y Marketing Digital</title>
-    <meta name="description" content="Simón Diaz | Divulgador de IA y Marketing Digital. Aprende a dominar recursos digitales y herramientas de Inteligencia Artificial de forma simple y práctica.">
+    <title>Videos | Simón Diaz</title>
+    <meta name="description" content="Tutoriales destacados de Inteligencia Artificial y Marketing Digital. Aprende de manera fácil y práctica con videos dinámicos.">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Simón Diaz | Divulgador de IA y Marketing Digital">
-    <meta property="og:description" content="Aprende a dominar recursos digitales y herramientas de Inteligencia Artificial de forma simple y práctica.">
+    <meta property="og:title" content="Videos | Simón Diaz">
+    <meta property="og:description" content="Tutoriales destacados de Inteligencia Artificial y Marketing Digital.">
     <meta property="og:image" content="assets/img/perfil.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Simón Diaz | Divulgador de IA y Marketing Digital">
-    <meta property="twitter:description" content="Aprende a dominar recursos digitales y herramientas de Inteligencia Artificial de forma simple y práctica.">
+    <meta property="twitter:title" content="Videos | Simón Diaz">
+    <meta property="twitter:description" content="Tutoriales destacados de Inteligencia Artificial y Marketing Digital.">
     <meta property="twitter:image" content="assets/img/perfil.jpg">
 
     <link rel="icon" type="image/png" href="assets/img/favicon.png">
@@ -28,10 +28,10 @@
         <div class="container nav-container">
             <div class="logo">SIMÓN DIAZ</div>
             <ul class="nav-links">
-                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="index.html">Inicio</a></li>
                 <li><a href="sobre-mi.html">Sobre Mí</a></li>
                 <li><a href="blog.html">Blog</a></li>
-                <li><a href="videos.html">Videos</a></li>
+                <li><a href="videos.html" class="active">Videos</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
                 <li class="search-trigger-nav"><a href="javascript:void(0)" id="search-nav-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></a></li>
             </ul>
@@ -51,13 +51,15 @@
         </div>
     </div>
 
-    <header id="home">
+    <section id="videos">
         <div class="container">
-            <h1 class="floating">SIMÓN DIAZ</h1>
-            <p class="subtitle">Estratega de Marketing Digital y Divulgador de Inteligencia Artificial. Te enseño de manera fácil, rápida y simple.</p>
-            <a href="sobre-mi.html" class="cta-button" style="text-decoration: none;">QUIERO APRENDER</a>
+            <h2>Tutoriales Destacados</h2>
+            <div class="grid">
+                <!-- Videos cargados dinámicamente desde YouTube API -->
+                <p style="grid-column: 1/-1; text-align: center; color: var(--accent);">Cargando últimos tutoriales...</p>
+            </div>
         </div>
-    </header>
+    </section>
 
     <footer>
         <div class="container" style="text-align: center;">
@@ -66,6 +68,7 @@
         </div>
     </footer>
 
+    <script src="assets/js/youtube.js"></script>
     <script type="module" src="assets/js/main.js"></script>
 </body>
 </html>

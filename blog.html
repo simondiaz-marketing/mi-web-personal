@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Simón Diaz</title>
+    <meta name="description" content="Artículos sobre Inteligencia Artificial, Marketing Digital y recursos tecnológicos. Aprende a dominar las mejores herramientas de forma simple y práctica.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Blog | Simón Diaz">
+    <meta property="og:description" content="Artículos sobre Inteligencia Artificial, Marketing Digital y recursos tecnológicos.">
+    <meta property="og:image" content="assets/img/perfil.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Blog | Simón Diaz">
+    <meta property="twitter:description" content="Artículos sobre Inteligencia Artificial, Marketing Digital y recursos tecnológicos.">
+    <meta property="twitter:image" content="assets/img/perfil.jpg">
+
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <div id="canvas-container"></div>
+
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">SIMÓN DIAZ</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="sobre-mi.html">Sobre Mí</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li class="search-trigger-nav"><a href="javascript:void(0)" id="search-nav-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="search-overlay">
+        <div class="search-container">
+            <div class="search-header">
+                <input type="text" id="search-input" placeholder="Buscar artículos o videos..." autocomplete="off">
+                <button id="close-search">&times;</button>
+            </div>
+            <div id="search-results" class="search-results">
+                <!-- Dynamic results here -->
+            </div>
+        </div>
+    </div>
+
+    <section id="blog">
+        <div class="container">
+            <h2>Blog: Artículos sobre IA y Tecnología Digital</h2>
+            
+            <div class="blog-search-trigger">
+                <button id="search-blog-btn" class="blog-search-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    <span>Buscar artículos o videos...</span>
+                </button>
+            </div>
+
+            <div class="grid">
+                <a href="blog/blog-notebooklm-2026.html" class="card-link">
+                    <div class="card blog-card">
+                        <div class="badge">IA</div>
+                        <h3>Guía NotebookLM 2026</h3>
+                        <p>Aprende a dominar NotebookLM: desde organizar cuadernos con carpetas hasta crear productos digitales con Antigravity y YouTube.</p>
+                        <span class="read-more">Leer guía completa &rarr;</span>
+                    </div>
+                </a>
+
+                <a href="blog/blog-kimi.html" class="card-link">
+                    <div class="card blog-card">
+                        <div class="badge">IA</div>
+                        <h3>Kimi AI: ¿Mejor que ChatGPT?</h3>
+                        <p>Exploramos las capacidades de Kimi AI, una herramienta que está desafiando lo que conocíamos sobre modelos de lenguaje gratuitos. Analizamos su razonamiento y utilidad práctica para el marketing.</p>
+                        <span class="read-more">Leer artículo completo &rarr;</span>
+                    </div>
+                </a>
+                <a href="blog/blog-vpn.html" class="card-link">
+                    <div class="card blog-card">
+                        <div class="badge">Seguridad</div>
+                        <h3>Por qué necesitas una VPN en 2026</h3>
+                        <p>La seguridad digital no es negociable. Te explico por qué una VPN es tu primera línea de defensa contra el rastreo y cómo elegir la mejor sin sacrificar velocidad.</p>
+                        <span class="read-more">Leer artículo completo &rarr;</span>
+                    </div>
+                </a>
+                <a href="blog/blog-meta.html" class="card-link">
+                    <div class="card blog-card">
+                        <div class="badge">Marketing</div>
+                        <h3>Automatización en Meta Business</h3>
+                        <p>Cómo dejar que los algoritmos trabajen por ti. Descubre la configuración exacta para que tus anuncios de Instagram y Facebook se optimicen mientras duermes.</p>
+                        <span class="read-more">Leer artículo completo &rarr;</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container" style="text-align: center;">
+            <p style="margin-bottom: 0.5rem;">Contacto: <a href="#" class="secure-email" data-u="simondiaz.contacto" data-d="gmail.com" style="color: var(--accent); text-decoration: none;">Simondiaz.contacto@gmail.com</a></p>
+            <p>&copy; 2026 Simón Diaz. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
