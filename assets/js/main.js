@@ -45,10 +45,63 @@ function animate() {
 
 animate();
 
-// Initialize Search and Pagination
+// Setup Mobile Menu dynamically
+function setupMobileMenu() {
+    const navContainer = document.querySelector('.nav-container');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (!navContainer || !navLinks) return;
+    
+    // Create button
+    const btn = document.createElement('button');
+    btn.className = 'mobile-menu-btn';
+    btn.id = 'mobile-menu-btn';
+    btn.setAttribute('aria-label', 'Menú móvil');
+    btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>`;
+    
+    // Append button to nav container
+    navContainer.appendChild(btn);
+    
+    // Click listener
+    btn.addEventListener('click', () => {
+        const isActive = navLinks.classList.toggle('active');
+        btn.classList.toggle('active');
+        
+        if (isActive) {
+            btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>`;
+            document.body.style.overflow = 'hidden'; // prevent scrolling when menu is open
+        } else {
+            btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>`;
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Close menu when clicking link
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            btn.classList.remove('active');
+            btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>`;
+            document.body.style.overflow = '';
+        });
+    });
+    
+    // Close menu on resize if screen becomes desktop width
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            btn.classList.remove('active');
+            btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>`;
+            document.body.style.overflow = '';
+        }
+    });
+}
+
+// Initialize Search, Pagination and Mobile Menu
 function initApp() {
     new SearchManager();
     new PaginationManager();
+    setupMobileMenu();
 }
 
 if (document.readyState === 'loading') {
