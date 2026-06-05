@@ -1,6 +1,9 @@
 # watch-deploy.ps1
 # Script para vigilar cambios en los archivos locales y subirlos automáticamente en tiempo real.
 
+$ScriptDir = $PSScriptRoot
+if ([string]::IsNullOrEmpty($ScriptDir)) { $ScriptDir = Get-Location }
+
 $watcher = New-Object System.IO.FileSystemWatcher
 $watcher.Path = Get-Location
 $watcher.IncludeSubdirectories = $true
@@ -24,30 +27,39 @@ $ignoredPatterns = @(
 # Cola de archivos cambiados
 $global:changedFiles = [System.Collections.Generic.HashSet[string]]::new()
 $global:timer = New-Object System.Timers.Timer
-$global:timer.Interval = 5000 # 5 segundos de espera/debounce (cooldown de guardado)
+$global:timer.Interval = 5000 # 5 segundos de espera/debounce
 $global:timer.AutoReset = $false
 
-# Acción a ejecutar cuando expira el temporizador (silencio de cambios)
+# Acción a ejecutar cuando expira el temporizador
 $action = {
     $files = $global:changedFiles | ForEach-Object { $_ }
     $global:changedFiles.Clear()
     
     if ($files.Count -gt 0) {
-        Write-Host "`n[Auto-Watch] Cambios detectados en: ($($files -join ', ')). Iniciando despliegue automático..." -ForegroundColor Yellow
+        $ScriptDir = $Event.MessageData
+        Write-Host "`n[Auto-Watch] Cambios detectados en: ($($files -join ', ')). Iniciando despliegue..." -ForegroundColor Yellow
         
-        # Ejecutar el deploy en modo Batch
-        & "$PSScriptRoot/deploy.ps1" -Batch
+        # Ejecutar el deploy en un proceso separado para evitar bloqueos en el hilo del evento
+        $deployScript = Join-Path $ScriptDir "deploy.ps1"
+        try {
+            $proc = Start-Process powershell -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File ""$deployScript"" -Batch" -NoNewWindow -PassThru -Wait
+            if ($proc.ExitCode -ne 0) {
+                Write-Host "[Auto-Watch] El despliegue finalizo con codigo de error: $($proc.ExitCode)" -ForegroundColor Red
+            }
+        } catch {
+            Write-Host "[Auto-Watch] Error al intentar iniciar el proceso de despliegue: $_" -ForegroundColor Red
+        }
     }
 }
 
-Register-ObjectEvent -InputObject $global:timer -EventName Elapsed -Action $action | Out-Null
+Register-ObjectEvent -InputObject $global:timer -EventName Elapsed -Action $action -MessageData $ScriptDir | Out-Null
 
 # Manejador de eventos de cambio de archivo
 $onChanged = {
     param($sender, $eventArgs)
     $path = $eventArgs.FullPath
     
-    # Obtener ruta relativa para limpieza
+    # Obtener ruta relativa
     $relPath = $path
     if ($path.StartsWith((Get-Location).Path)) {
         $relPath = $path.Substring((Get-Location).Path.Length).TrimStart('\')
