@@ -2,85 +2,86 @@
     {
         "title": "Participación y Promoción en la Expo Montoya",
         "description": "Desarrollo de stands didácticos, demostración de proyectos de hardware/software y guiado a alumnos de escuelas secundarias en la feria anual.",
-        "url": "trayectoria/articulos/extra-expo-montoya.html",
+        "url": "trayectoria/formacion-complementaria/extra-expo-montoya.html",
         "badge": "Extracurricular",
         "date": "2026-05-30"
     },
     {
         "title": "Producción Audiovisual para Instagram",
         "description": "Diseño y edición de video promocional de la carrera para redes sociales oficiales, con fines de difusión de la propuesta académica en TIC.",
-        "url": "trayectoria/articulos/extra-instagram.html",
+        "url": "trayectoria/formacion-complementaria/extra-instagram.html",
         "badge": "Extracurricular",
         "date": "2026-05-28"
     },
     {
         "title": "Barreras de Comunicación en Reuniones Virtuales",
         "description": "Evaluación de los problemas comunicativos y de fatiga en la telemática, analizando causas físicas y no verbales.",
-        "url": "trayectoria/articulos/comunicacion-barreras.html",
+        "url": "trayectoria/comunicacion-1/comunicacion-barreras.html",
         "badge": "Comunicación I",
         "date": "2026-05-22"
     },
     {
         "title": "Estrategias de Oratoria para Presentaciones Técnicas",
         "description": "Análisis de tácticas verbales y corporales para estructurar discursos técnicos ante audiencias no técnicas.",
-        "url": "trayectoria/articulos/tole-oratoria.html",
+        "url": "trayectoria/taller-ole/tole-oratoria.html",
         "badge": "Taller de O.L.E.",
         "date": "2026-05-20"
     },
     {
         "title": "Soporte Técnico y Administración de Redes",
         "description": "Registro y resolución de incidentes de soporte, mantenimiento de hardware, configuraciones de host e IP fija.",
-        "url": "trayectoria/articulos/practica-bitacora.html",
+        "url": "trayectoria/practica-1/practica-bitacora.html",
         "badge": "Práctica I",
         "date": "2026-05-18"
     },
     {
         "title": "Comunicación Asertiva en Equipos Técnicos",
         "description": "El impacto de la empatía, la escucha activa y la asertividad para la optimización de los procesos de desarrollo ágil.",
-        "url": "trayectoria/articulos/comunicacion-asertiva.html",
+        "url": "trayectoria/comunicacion-1/comunicacion-asertiva.html",
         "badge": "Comunicación I",
         "date": "2026-05-15"
     },
     {
         "title": "El Pensamiento Crítico y la Escritura ante la IA",
         "description": "Ensayo académico sobre los riesgos de la delegación absoluta de la escritura y el valor irremplazable del pensamiento propio.",
-        "url": "trayectoria/articulos/tole-critica-ia.html",
+        "url": "trayectoria/taller-ole/tole-critica-ia.html",
         "badge": "Taller de O.L.E.",
         "date": "2026-05-14"
     },
     {
         "title": "Cuellos de Botella en CPUs Modernas",
         "description": "Estudio de la barrera térmica, jerarquía de memorias caché (L1/L2/L3) y la predicción de ramificaciones.",
-        "url": "trayectoria/articulos/arq-cuellos-botella.html",
+        "url": "trayectoria/arquitectura/arq-cuellos-botella.html",
         "badge": "Arquitectura",
         "date": "2026-05-12"
     },
     {
         "title": "Observación Institucional y Auditoría IT",
         "description": "Estudio de caso sobre la infraestructura de red, topologías y políticas de seguridad informática de una organización local.",
-        "url": "trayectoria/articulos/practica-observacion.html",
+        "url": "trayectoria/practica-1/practica-observacion.html",
         "badge": "Práctica I",
         "date": "2026-05-10"
     },
     {
         "title": "Gestión de Memoria y Paginación",
         "description": "Estudio de los mecanismos de memoria virtual, traducción de direcciones (MMU), fallos de página y swap en Linux vs Windows.",
-        "url": "trayectoria/articulos/so-memoria.html",
+        "url": "trayectoria/sistemas-operativos/so-memoria.html",
         "badge": "Sistemas Operativos",
         "date": "2026-05-08"
     },
     {
         "title": "Evolución de Buses de Datos y Almacenamiento",
         "description": "Análisis del salto de IDE/SATA a buses PCIe y el impacto de los SSDs NVMe de alta velocidad.",
-        "url": "trayectoria/articulos/arq-buses.html",
+        "url": "trayectoria/arquitectura/arq-buses.html",
         "badge": "Arquitectura",
         "date": "2026-05-04"
     },
     {
         "title": "Planificación de CPU: FIFO, SJF y Round Robin",
         "description": "Análisis comparativo de algoritmos de despacho de procesos. Simulación de tiempos de espera e impacto en sistemas interactivos.",
-        "url": "trayectoria/articulos/so-planificacion.html",
+        "url": "trayectoria/sistemas-operativos/so-planificacion.html",
         "badge": "Sistemas Operativos",
         "date": "2026-05-01"
     }
 ]
+
