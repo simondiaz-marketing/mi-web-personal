@@ -1,5 +1,19 @@
 [
     {
+        "title": "Participación y Promoción en la Expo Montoya",
+        "description": "Desarrollo de stands didácticos, demostración de proyectos de hardware/software y guiado a alumnos de escuelas secundarias en la feria anual.",
+        "url": "trayectoria/articulos/extra-expo-montoya.html",
+        "badge": "Extracurricular",
+        "date": "2026-05-30"
+    },
+    {
+        "title": "Producción Audiovisual para Instagram",
+        "description": "Diseño y edición de video promocional de la carrera para redes sociales oficiales, con fines de difusión de la propuesta académica en TIC.",
+        "url": "trayectoria/articulos/extra-instagram.html",
+        "badge": "Extracurricular",
+        "date": "2026-05-28"
+    },
+    {
         "title": "Barreras de Comunicación en Reuniones Virtuales",
         "description": "Evaluación de los problemas comunicativos y de fatiga en la telemática, analizando causas físicas y no verbales.",
         "url": "trayectoria/articulos/comunicacion-barreras.html",
@@ -22,7 +36,7 @@
     },
     {
         "title": "Comunicación Asertiva en Equipos Técnicos",
-        "description": "El impacto de la empatía, la escucha activa y la asertividad para la optimización de los de desarrollo ágil.",
+        "description": "El impacto de la empatía, la escucha activa y la asertividad para la optimización de los procesos de desarrollo ágil.",
         "url": "trayectoria/articulos/comunicacion-asertiva.html",
         "badge": "Comunicación I",
         "date": "2026-05-15"
