@@ -15,23 +15,28 @@ export class SearchManager {
     async init() {
         if (!this.overlay) return;
 
-        // Fetch blog posts - Using absolute path from origin
+        // Fetch academic posts - Using absolute path from origin
         try {
-            const dataPath = window.location.origin + '/data/blog-posts.json';
+            const dataPath = window.location.origin + '/data/academic-posts.json';
             const response = await fetch(dataPath);
             if (!response.ok) throw new Error('Fetch failed');
             this.blogPosts = await response.json();
         } catch (e) {
-            console.warn('Could not load blog posts for search:', e);
+            console.warn('Could not load academic posts for search:', e);
             // Last resort fallbacks
             try {
-                const response = await fetch('data/blog-posts.json');
+                const response = await fetch('data/academic-posts.json');
                 this.blogPosts = await response.json();
             } catch (err1) {
                 try {
-                    const response = await fetch('../data/blog-posts.json');
+                    const response = await fetch('../data/academic-posts.json');
                     this.blogPosts = await response.json();
-                } catch (err2) {}
+                } catch (err2) {
+                    try {
+                        const response = await fetch('../../data/academic-posts.json');
+                        this.blogPosts = await response.json();
+                    } catch (err3) {}
+                }
             }
         }
 
@@ -161,11 +166,28 @@ export class SearchManager {
 
         results.forEach(item => {
             const resultItem = document.createElement('a');
-            resultItem.href = item.url.startsWith('http') ? item.url : `/${item.url}`;
+            
+            let finalUrl = item.url;
+            if (!item.url.startsWith('http')) {
+                // Determine prefix by checking the navbar's link to index.html
+                let prefix = "";
+                const indexLink = document.querySelector('nav a[href*="index.html"]');
+                if (indexLink) {
+                    const href = indexLink.getAttribute('href');
+                    if (href.startsWith('../../')) {
+                        prefix = '../../';
+                    } else if (href.startsWith('../')) {
+                        prefix = '../';
+                    }
+                }
+                finalUrl = prefix + item.url;
+            }
+            
+            resultItem.href = finalUrl;
             resultItem.className = 'search-result-item';
             
             resultItem.innerHTML = `
-                <div class="badge">${item.badge || 'IA'}</div>
+                <div class="badge">${item.badge || 'Académico'}</div>
                 <h4>${item.title}</h4>
                 <p>${item.description}</p>
             `;

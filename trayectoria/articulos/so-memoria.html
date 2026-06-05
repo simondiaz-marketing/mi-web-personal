@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Memoria y Paginación | Sistemas Operativos | Simón Diaz</title>
+    
+    <link rel="icon" type="image/png" href="../../assets/img/favicon.png">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+</head>
+<body class="article-page">
+    <div id="canvas-container"></div>
+
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">SIMÓN DIAZ</div>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../../sobre-mi.html">Sobre Mí</a></li>
+                <li><a href="../../trayectoria.html" class="active">Trayectoria Académica</a></li>
+                <li><a href="../../videos.html">Videos</a></li>
+                <li><a href="../../contacto.html">Contacto</a></li>
+                <li class="search-trigger-nav"><a href="javascript:void(0)" id="search-nav-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="search-overlay">
+        <div class="search-container">
+            <div class="search-header">
+                <input type="text" id="search-input" placeholder="Buscar artículos o materias..." autocomplete="off">
+                <button id="close-search">&times;</button>
+            </div>
+            <div id="search-results" class="search-results">
+                <!-- Dynamic results here -->
+            </div>
+        </div>
+    </div>
+
+    <div class="article-content">
+        <a href="../sistemas-operativos.html" class="back-link">&larr; Volver a Sistemas Operativos</a>
+
+        <header class="article-header">
+            <div class="badge">Apunte de Estudio</div>
+            <h1>Gestión de Memoria y Paginación en Sistemas Operativos</h1>
+            <div class="author-info">
+                <img src="../../assets/img/perfil.jpg" alt="Simón Diaz" class="author-img">
+                <div>
+                    <strong>Simón Diaz</strong>
+                    <p>Publicado en Sistemas Operativos • 2026-05-08</p>
+                </div>
+            </div>
+        </header>
+
+        <article class="article-body">
+            <p>La memoria principal (RAM) es uno de los recursos más valiosos del computador. El administrador de memoria del sistema operativo tiene el rol de gestionar este espacio, permitiendo que múltiples procesos compartan la memoria de forma segura y transparente mediante la abstracción de la **Memoria Virtual**.</p>
+
+            <h2>1. El Concepto de Memoria Virtual</h2>
+            <p>La memoria virtual separa el espacio de direcciones lógicas visto por el proceso del espacio de direcciones físicas de la memoria real. Esto permite:</p>
+            <ul>
+                <li>Ejecutar procesos cuyo espacio de direcciones lógicas excede el límite físico de la memoria RAM disponible.</li>
+                <li>Proteger a los procesos entre sí, evitando que un hilo pueda leer o escribir en la memoria asignada a otra aplicación.</li>
+                <li>Compartir archivos de librerías comunes (DLLs o archivos .so) en memoria física entre procesos distintos sin duplicar el consumo.</li>
+            </ul>
+
+            <h2>2. Paginación por Demanda y Traducción de Direcciones (MMU)</h2>
+            <p>La paginación divide la memoria lógica del proceso en bloques de tamaño fijo llamados **Páginas** y la memoria física en bloques del mismo tamaño llamados **Marcos de Página (Frames)**. La traducción de direcciones lógicas (generadas por la CPU) a físicas es realizada por hardware a través de la **Unidad de Gestión de Memoria (MMU)** apoyándose en la **Tabla de Páginas** de cada proceso.</p>
+            <p>Cuando un proceso intenta acceder a una dirección lógica cuya página no está cargada actualmente en la memoria física (RAM), la MMU genera una interrupción de hardware conocida como <strong>Fallo de Página (Page Fault)</strong>. El sistema operativo detiene el proceso, busca la página requerida en el almacenamiento secundario (disco), la carga en un marco libre de la RAM, actualiza la tabla de páginas y reanuda la instrucción fallida.</p>
+
+            <h2>3. Algoritmos de Reemplazo de Páginas y Thrashing</h2>
+            <p>Si durante un Fallo de Página no hay marcos físicos libres en la RAM, el SO debe seleccionar una página residente para ser desalojada al disco. Para ello, implementa algoritmos como:</p>
+            <ul>
+                <li><strong>FIFO (First-In, First-Out):</strong> Desaloja la página más antigua. Sufre de la Anomalía de Belady (a mayor cantidad de marcos físicos, puede incrementarse el número de fallos de página).</li>
+                <li><strong>LRU (Least Recently Used):</strong> Desaloja la página que no ha sido referenciada por más tiempo. Es sumamente efectivo pero requiere soporte de hardware para mantener el registro temporal de accesos.</li>
+            </ul>
+            <p>Si la tasa de fallos de página es demasiado elevada, el procesador dedicará más tiempo a paginar (intercambio continuo de páginas entre RAM y disco) que a ejecutar instrucciones útiles de los procesos. Este fenómeno crítico de degradación del rendimiento se denomina <strong>Hiperactividad de Paginación (Thrashing)</strong>.</p>
+
+            <h2>4. Diferencias de Implementación: Linux vs Windows</h2>
+            <p>Aunque ambos sistemas implementan paginación virtual, difieren en su nomenclatura y organización de almacenamiento de respaldo:</p>
+            <ul>
+                <li><strong>En Windows:</strong> El espacio de respaldo se almacena en archivos de sistema ocultos en la raíz de los discos llamados <code>pagefile.sys</code>. Windows gestiona el tamaño del archivo dinámicamente o permite asignación manual.</li>
+                <li><strong>En Linux:</strong> Se prefiere estructurar el espacio de respaldo en una partición dedicada independiente del sistema de archivos principal, denominada <strong>Partición Swap (o archivo swapfile)</strong>. La "Swap" de Linux suele configurarse de forma estática en la instalación.</li>
+            </ul>
+        </article>
+
+        <!-- Pagination dynamically loaded -->
+        <div id="pagination-container"></div>
+    </div>
+
+    <footer>
+        <div class="container" style="text-align: center;">
+            <p style="margin-bottom: 0.5rem;">Contacto: <a href="#" class="secure-email" data-u="simondiaz.contacto" data-d="gmail.com" style="color: var(--accent); text-decoration: none;">Simondiaz.contacto@gmail.com</a></p>
+            <p>&copy; 2026 Simón Diaz. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="../../assets/js/main.js"></script>
+</body>
+</html>

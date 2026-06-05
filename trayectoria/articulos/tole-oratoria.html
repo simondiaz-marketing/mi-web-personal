@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrategias de Oratoria para Presentaciones Técnicas | TOLE | Simón Diaz</title>
+    
+    <link rel="icon" type="image/png" href="../../assets/img/favicon.png">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+</head>
+<body class="article-page">
+    <div id="canvas-container"></div>
+
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">SIMÓN DIAZ</div>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../../sobre-mi.html">Sobre Mí</a></li>
+                <li><a href="../../trayectoria.html" class="active">Trayectoria Académica</a></li>
+                <li><a href="../../videos.html">Videos</a></li>
+                <li><a href="../../contacto.html">Contacto</a></li>
+                <li class="search-trigger-nav"><a href="javascript:void(0)" id="search-nav-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="search-overlay">
+        <div class="search-container">
+            <div class="search-header">
+                <input type="text" id="search-input" placeholder="Buscar artículos o materias..." autocomplete="off">
+                <button id="close-search">&times;</button>
+            </div>
+            <div id="search-results" class="search-results">
+                <!-- Dynamic results here -->
+            </div>
+        </div>
+    </div>
+
+    <div class="article-content">
+        <a href="../taller-ole.html" class="back-link">&larr; Volver a Taller de O.L.E.</a>
+
+        <header class="article-header">
+            <div class="badge">Guía de Oratoria</div>
+            <h1>Estrategias de Oratoria para Presentaciones Técnicas</h1>
+            <div class="author-info">
+                <img src="../../assets/img/perfil.jpg" alt="Simón Diaz" class="author-img">
+                <div>
+                    <strong>Simón Diaz</strong>
+                    <p>Publicado en Taller de Oralidad, Lectura y Escritura • 2026-05-20</p>
+                </div>
+            </div>
+        </header>
+
+        <article class="article-body">
+            <p>El éxito de un ingeniero, desarrollador de software o administrador de sistemas no reside únicamente en su destreza técnica frente a la terminal. Tarde o temprano, surgirá la necesidad de presentar una propuesta arquitectónica ante directivos, realizar el pitcheo de una startup tecnológica o dar una charla de capacitación interna. Esta guía sistematiza las herramientas de oratoria clave para discursos con perfil tecnológico.</p>
+
+            <h2>1. Traducción Discursiva: Conectando con Audiencias No Técnicas</h2>
+            <p>El error más común en la oratoria técnica consiste en abusar de tecnicismos complejos (jargon) que aíslan a la audiencia. Para evitarlo, se sugieren las siguientes técnicas discursivas:</p>
+            <ul>
+                <li><strong>El Uso del Pensamiento Analógico:</strong> Relacionar conceptos abstractos con realidades cotidianas. En lugar de explicar la memoria caché de la CPU mediante ciclos de bus y latencias físicas de SRAM, se puede comparar con un "cajón de escritorio de acceso rápido" que evita levantarse al archivo principal (la RAM).</li>
+                <li><strong>Focalización en el Valor de Negocio:</strong> Al presentar un cambio de infraestructura a gerentes de finanzas, en lugar de centrar la charla en las colas de comandos de NVMe, explicar cómo la menor latencia de lectura reducirá en un 30% los tiempos de espera de los clientes en la pasarela de pagos, incrementando las ventas.</li>
+            </ul>
+
+            <h2>2. Estructuración del Discurso Técnico</h2>
+            <p>Un discurso persuasivo debe contar con un hilo conductor claro y progresivo:</p>
+            <ol>
+                <li><strong>El Gancho (Intro):</strong> Iniciar con una estadística impactante, un problema real del equipo o una anécdota. (Ej: "¿Sabían que la lentitud en la carga de nuestra app nos hace perder el 7% de las conversiones cada segundo?").</li>
+                <li><strong>El Contexto de Tensión (El Conflicto):</strong> Exponer el problema actual del sistema o negocio en detalle.</li>
+                <li><strong>La Solución Técnica (El Clímax):</strong> Presentar la propuesta de arquitectura u optimización de forma clara, apoyándose en un diagrama unificado.</li>
+                <li><strong>Cierre de Acción (Llamada a la Acción):</strong> Concluir detallando los próximos pasos inmediatos y el beneficio de actuar ahora.</li>
+            </ol>
+
+            <h2>3. Lenguaje No Verbal y Manejo de la Voz</h2>
+            <p>El impacto del orador depende sustancialmente del canal no verbal y de su expresión física:</p>
+            <ul>
+                <li><strong>La Postura Corporal (Proxémica y Kinésica):</strong> Mantener una postura erguida pero relajada. Gesticular con las palmas abiertas hacia arriba (generando credibilidad y apertura) y evitar cruzar los brazos o esconder las manos (indicadores inconscientes de inseguridad o defensiva).</li>
+                <li><strong>El Control Vocal (Tono y Ritmo):</strong> Evitar el hablar plano y monótono que induce al aburrimiento. Modificar el volumen y la velocidad para resaltar las palabras clave. Utilizar el silencio estratégico (pausas de 1 o 2 segundos) después de enunciar un punto crítico para permitir que la audiencia lo asimile y reflexione.</li>
+            </ul>
+        </article>
+
+        <!-- Pagination dynamically loaded -->
+        <div id="pagination-container"></div>
+    </div>
+
+    <footer>
+        <div class="container" style="text-align: center;">
+            <p style="margin-bottom: 0.5rem;">Contacto: <a href="#" class="secure-email" data-u="simondiaz.contacto" data-d="gmail.com" style="color: var(--accent); text-decoration: none;">Simondiaz.contacto@gmail.com</a></p>
+            <p>&copy; 2026 Simón Diaz. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="../../assets/js/main.js"></script>
+</body>
+</html>

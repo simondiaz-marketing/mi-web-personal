@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trayectoria Académica | Simón Diaz</title>
+    <meta name="description" content="Trayectoria académica de Simón Diaz. Notas, informes y artículos sobre Práctica I, Comunicación I, Sistemas Operativos, Arquitectura y Taller de Lectura y Escritura.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Trayectoria Académica | Simón Diaz">
+    <meta property="og:description" content="Explora las materias y artículos académicos de la trayectoria de Simón Diaz.">
+    <meta property="og:image" content="assets/img/perfil.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Trayectoria Académica | Simón Diaz">
+    <meta property="twitter:description" content="Explora las materias y artículos académicos de la trayectoria de Simón Diaz.">
+    <meta property="twitter:image" content="assets/img/perfil.jpg">
+
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        .subject-badge {
+            background: rgba(112, 0, 255, 0.15) !important;
+            border: 1px solid #7000ff !important;
+            color: #b070ff !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-container"></div>
+
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">SIMÓN DIAZ</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="sobre-mi.html">Sobre Mí</a></li>
+                <li><a href="trayectoria.html" class="active">Trayectoria Académica</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li class="search-trigger-nav"><a href="javascript:void(0)" id="search-nav-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="search-overlay">
+        <div class="search-container">
+            <div class="search-header">
+                <input type="text" id="search-input" placeholder="Buscar artículos o materias..." autocomplete="off">
+                <button id="close-search">&times;</button>
+            </div>
+            <div id="search-results" class="search-results">
+                <!-- Dynamic results here -->
+            </div>
+        </div>
+    </div>
+
+    <section id="trayectoria">
+        <div class="container">
+            <h2>Trayectoria Académica</h2>
+            <p class="subtitle" style="text-align: center; margin: -2rem auto 3rem; max-width: 700px;">
+                Un registro detallado de las materias cursadas, proyectos prácticos y artículos académicos desarrollados a lo largo de mi formación.
+            </p>
+            
+            <div class="blog-search-trigger">
+                <button id="search-blog-btn" class="blog-search-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    <span>Buscar artículos en mi trayectoria...</span>
+                </button>
+            </div>
+
+            <div class="grid">
+                <a href="trayectoria/practica-1.html" class="card-link">
+                    <div class="card blog-card">
+                        <div class="badge subject-badge">Práctica Profesional</div>
+                        <h3>Práctica I</h3>
+                        <p>Observaciones de campo laboral, análisis de infraestructura IT en empresas locales y bitácoras de soporte técnico.</p>
+                        <span class="read-more">Ver materia y artículos &rarr;</span>
+                    </div>
+                </a>
+
+                <a href="trayectoria/comunicacion-1.html" class="card-link">
+                    <div class="card blog-card">
+                        <div class="badge subject-badge">Habilidades Blandas</div>
+                        <h3>Comunicación I</h3>
+                        <p>El rol de la asertividad y la resolución de barreras comunicacionales dentro de entornos y equipos de desarrollo tecnológico.</p>
+                        <span class="read-more">Ver materia y artículos &rarr;</span>
+                    </div>
+                </a>
+
+                <a href="trayectoria/sistemas-operativos.html" class="card-link">
+                    <div class="card blog-card">
+                        <div class="badge subject-badge">Sistemas y Software</div>
+                        <h3>Sistemas Operativos</h3>
+                        <p>Análisis en profundidad de algoritmos de planificación de CPU, gestión de memoria virtual, paginación y comandos en Linux/Windows.</p>
+                        <span class="read-more">Ver materia y artículos &rarr;</span>
+                    </div>
+                </a>
+
+                <a href="trayectoria/arquitectura.html" class="card-link">
+                    <div class="card blog-card">
+                        <div class="badge subject-badge">Hardware y Sistemas</div>
+                        <h3>Arquitectura de Ordenadores</h3>
+                        <p>Estudio de los componentes físicos del PC, evolución de los buses PCIe y NVMe, y diagnóstico de cuellos de botella en hardware moderno.</p>
+                        <span class="read-more">Ver materia y artículos &rarr;</span>
+                    </div>
+                </a>
+
+                <a href="trayectoria/taller-ole.html" class="card-link">
+                    <div class="card blog-card">
+                        <div class="badge subject-badge">Comprensión y Escritura</div>
+                        <h3>Taller de Oralidad, Lectura y Escritura</h3>
+                        <p>Producción de ensayos críticos sobre la IA, análisis de textos y técnicas de oratoria académica para presentaciones profesionales.</p>
+                        <span class="read-more">Ver materia y artículos &rarr;</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container" style="text-align: center;">
+            <p style="margin-bottom: 0.5rem;">Contacto: <a href="#" class="secure-email" data-u="simondiaz.contacto" data-d="gmail.com" style="color: var(--accent); text-decoration: none;">Simondiaz.contacto@gmail.com</a></p>
+            <p>&copy; 2026 Simón Diaz. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

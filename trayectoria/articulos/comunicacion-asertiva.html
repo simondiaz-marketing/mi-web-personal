@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunicación Asertiva en Equipos Técnicos | Comunicación I | Simón Diaz</title>
+    
+    <link rel="icon" type="image/png" href="../../assets/img/favicon.png">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+</head>
+<body class="article-page">
+    <div id="canvas-container"></div>
+
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">SIMÓN DIAZ</div>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../../sobre-mi.html">Sobre Mí</a></li>
+                <li><a href="../../trayectoria.html" class="active">Trayectoria Académica</a></li>
+                <li><a href="../../videos.html">Videos</a></li>
+                <li><a href="../../contacto.html">Contacto</a></li>
+                <li class="search-trigger-nav"><a href="javascript:void(0)" id="search-nav-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="search-overlay">
+        <div class="search-container">
+            <div class="search-header">
+                <input type="text" id="search-input" placeholder="Buscar artículos o materias..." autocomplete="off">
+                <button id="close-search">&times;</button>
+            </div>
+            <div id="search-results" class="search-results">
+                <!-- Dynamic results here -->
+            </div>
+        </div>
+    </div>
+
+    <div class="article-content">
+        <a href="../comunicacion-1.html" class="back-link">&larr; Volver a Comunicación I</a>
+
+        <header class="article-header">
+            <div class="badge">Artículo Académico</div>
+            <h1>El Impacto de la Comunicación Asertiva en Equipos Técnicos</h1>
+            <div class="author-info">
+                <img src="../../assets/img/perfil.jpg" alt="Simón Diaz" class="author-img">
+                <div>
+                    <strong>Simón Diaz</strong>
+                    <p>Publicado en Comunicación I • 2026-05-15</p>
+                </div>
+            </div>
+        </header>
+
+        <article class="article-body">
+            <p>Históricamente, las carreras y trabajos técnicos han priorizado las habilidades duras (hard skills) como el dominio de lenguajes de programación, configuración de hardware o administración de bases de datos. Sin embargo, en el entorno laboral moderno, la comunicación asertiva se ha consolidado como un catalizador indispensable para la productividad y cohesión de los equipos de tecnología.</p>
+
+            <h2>¿Qué es la Comunicación Asertiva en Tecnología?</h2>
+            <p>La asertividad se sitúa en el punto de equilibrio entre la pasividad (el silencio complaciente ante malas decisiones técnicas) y la agresividad (la imposición soberbia de criterios técnicos). Consiste en la habilidad de expresar ideas, opiniones y límites de forma clara, directa y respetuosa, defendiendo la posición propia sin herir ni devaluar las contribuciones de los demás.</p>
+
+            <h2>Beneficios Clave en Proyectos de Ingeniería y Redes</h2>
+            <ul>
+                <li><strong>Reducción de Deuda Técnica y Bugs:</strong> En un equipo donde reina la asertividad, un desarrollador junior se sentirá seguro de manifestar dudas sobre una arquitectura de software antes de escribir código defectuoso.</li>
+                <li><strong>Optimización de Tiempos en Reuniones Ágiles (Daily Standups):</strong> La asertividad fomenta discursos sintéticos y focalizados en impedimentos reales, eliminando comentarios irrelevantes o discusiones no constructivas.</li>
+                <li><strong>Resolución Saludable de Conflictos Técnicos:</strong> Ante divergencias sobre qué tecnología implementar (por ejemplo, elegir entre Docker o máquinas virtuales convencionales), el diálogo asertivo prioriza los datos objetivos y los objetivos del proyecto por encima del ego personal.</li>
+            </ul>
+
+            <h2>Estrategias Prácticas para Mejorar la Asertividad</h2>
+            <p>Para cultivar una dinámica asertiva en equipos de IT se proponen las siguientes prácticas:</p>
+            <ul>
+                <li><strong>Uso de Mensajes en Primera Persona:</strong> En lugar de decir "Tu código tiene un error y va a romper el servidor", se aconseja decir: "He revisado esta sección de código y observo una posible excepción que podría impactar el rendimiento en producción".</li>
+                <li><strong>Hacer Preguntas Aclaratorias:</strong> Antes de juzgar una propuesta ajena, utilizar fórmulas de re-encuadre discursivo como: "¿Podrías detallar qué ventajas ofrece esta topología frente a un modelo híbrido para este caso particular?".</li>
+                <li><strong>Establecer y Respetar Acuerdos de Nivel de Servicio (SLA) de Comunicación:</strong> Fijar pautas sobre qué canales se utilizan para emergencias (llamadas, Slack urgente) y cuáles para feedback detallado (revisiones de código escritas), regulando las expectativas de respuesta.</li>
+            </ul>
+        </article>
+
+        <!-- Pagination dynamically loaded -->
+        <div id="pagination-container"></div>
+    </div>
+
+    <footer>
+        <div class="container" style="text-align: center;">
+            <p style="margin-bottom: 0.5rem;">Contacto: <a href="#" class="secure-email" data-u="simondiaz.contacto" data-d="gmail.com" style="color: var(--accent); text-decoration: none;">Simondiaz.contacto@gmail.com</a></p>
+            <p>&copy; 2026 Simón Diaz. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="../../assets/js/main.js"></script>
+</body>
+</html>

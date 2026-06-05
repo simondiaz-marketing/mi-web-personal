@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barreras de Comunicación en Reuniones Virtuales | Comunicación I | Simón Diaz</title>
+    
+    <link rel="icon" type="image/png" href="../../assets/img/favicon.png">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+</head>
+<body class="article-page">
+    <div id="canvas-container"></div>
+
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">SIMÓN DIAZ</div>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../../sobre-mi.html">Sobre Mí</a></li>
+                <li><a href="../../trayectoria.html" class="active">Trayectoria Académica</a></li>
+                <li><a href="../../videos.html">Videos</a></li>
+                <li><a href="../../contacto.html">Contacto</a></li>
+                <li class="search-trigger-nav"><a href="javascript:void(0)" id="search-nav-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="search-overlay">
+        <div class="search-container">
+            <div class="search-header">
+                <input type="text" id="search-input" placeholder="Buscar artículos o materias..." autocomplete="off">
+                <button id="close-search">&times;</button>
+            </div>
+            <div id="search-results" class="search-results">
+                <!-- Dynamic results here -->
+            </div>
+        </div>
+    </div>
+
+    <div class="article-content">
+        <a href="../comunicacion-1.html" class="back-link">&larr; Volver a Comunicación I</a>
+
+        <header class="article-header">
+            <div class="badge">Análisis Crítico</div>
+            <h1>Análisis de las Barreras de Comunicación en Reuniones Virtuales</h1>
+            <div class="author-info">
+                <img src="../../assets/img/perfil.jpg" alt="Simón Diaz" class="author-img">
+                <div>
+                    <strong>Simón Diaz</strong>
+                    <p>Publicado en Comunicación I • 2026-05-22</p>
+                </div>
+            </div>
+        </header>
+
+        <article class="article-body">
+            <p>La adopción masiva del teletrabajo y la educación virtual ha reconfigurado los canales de interacción humana. Si bien plataformas como Zoom, Teams o Discord facilitan la conectividad global, introducen un conjunto único de "ruidos" y barreras que distorsionan el mensaje y agotan cognitivamente a los participantes. Este análisis evalúa dichos obstáculos y propone técnicas de mitigación discursiva.</p>
+
+            <h2>1. Barreras Físicas y Técnicas (El Canal)</h2>
+            <p>A diferencia de la interacción presencial donde el canal acústico es continuo y tridimensional, en las videollamadas la comunicación está mediada por la conversión digital de señales:</p>
+            <ul>
+                <li><strong>Latencia de Audio (Delay):</strong> Pequeñas latencias superiores a 150 ms provocan micro-interrupciones constantes, solapamiento de turnos de habla y malentendidos sobre la intención del interlocutor (pareciendo agresivos o impacientes).</li>
+                <li><strong>Compresión y Pérdida de Paquetes:</strong> El audio digitalizado suprime frecuencias naturales de la voz. Esto dificulta la interpretación del tono emocional (sarcasmo, urgencia, duda), incrementando el esfuerzo mental para decodificar el mensaje.</li>
+            </ul>
+
+            <h2>2. Barreras Kinésicas y Proxémicas (La Falta de Presencialidad)</h2>
+            <p>La comunicación humana se apoya sustancialmente en señales corporales que quedan completamente eliminadas o sesgadas por la pantalla:</p>
+            <ul>
+                <li><strong>Pérdida de Contacto Visual Directo:</strong> Debido a la distancia física entre la lente de la cámara y la ventana de la videollamada en el monitor, es imposible sostener una mirada directa mutua. Esto reduce la percepción de confianza y empatía.</li>
+                <li><strong>Filtro de Lenguaje No Verbal:</strong> Quedan fuera del plano gestos de manos, posturas corporales o microexpresiones que contextualizan el habla. El emisor se ve obligado a sobreactuar vocalmente o exagerar gestos faciales para transmitir énfasis.</li>
+                <li><strong>"Efecto Espejo" y Fatiga Cognitiva:</strong> Vernos a nosotros mismos de forma constante durante una reunión de trabajo genera una autoevaluación inconsciente y continua, lo que eleva los niveles de estrés y cansancio mental (fatiga de Zoom).</li>
+            </ul>
+
+            <h2>3. Estrategias de Compensación Comunicativa</h2>
+            <p>Para mitigar estas barreras y hacer que el mensaje llegue sin distorsiones, se sugieren las siguientes pautas discursivas:</p>
+            <ul>
+                <li><strong>Verificación Explícita del Canal (Feedback Activo):</strong> Realizar preguntas frecuentes de confirmación como: "¿Se comprendió esta idea sobre la base de datos?" o "¿Me escuchan bien?".</li>
+                <li><strong>Estructuración Rígida de Turnos de Habla:</strong> Implementar moderadores en reuniones de más de 4 personas y usar herramientas digitales de solicitud de palabra (levantar la mano virtual).</li>
+                <li><strong>Apoyo Visual Redundante:</strong> Acompañar siempre el discurso oral con presentaciones compartidas, diagramas interactivos o minutas escritas en tiempo real, garantizando un canal de soporte visual paralelo.</li>
+            </ul>
+        </article>
+
+        <!-- Pagination dynamically loaded -->
+        <div id="pagination-container"></div>
+    </div>
+
+    <footer>
+        <div class="container" style="text-align: center;">
+            <p style="margin-bottom: 0.5rem;">Contacto: <a href="#" class="secure-email" data-u="simondiaz.contacto" data-d="gmail.com" style="color: var(--accent); text-decoration: none;">Simondiaz.contacto@gmail.com</a></p>
+            <p>&copy; 2026 Simón Diaz. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="../../assets/js/main.js"></script>
+</body>
+</html>
