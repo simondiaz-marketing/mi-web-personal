@@ -97,11 +97,100 @@ function setupMobileMenu() {
     });
 }
 
-// Initialize Search, Pagination and Mobile Menu
+// Timeline Stepper Logic
+function setupTimeline() {
+    const steps = document.querySelectorAll('.timeline-step');
+    const progressBar = document.getElementById('timeline-progress');
+    const cards = document.querySelectorAll('.grid > .card, .grid > .card-link');
+    const grid = document.querySelector('#trayectoria .grid');
+    
+    if (steps.length === 0 || !grid) return;
+    
+    // Set initial progress
+    updateProgress(0);
+    
+    // Set transition class to grid items
+    cards.forEach(card => card.classList.add('grid-transition'));
+    
+    steps.forEach((step, index) => {
+        step.addEventListener('click', () => {
+            // Remove active class from all steps
+            steps.forEach(s => s.classList.remove('active'));
+            
+            // Add active class to clicked step
+            step.classList.add('active');
+            
+            // Update progress bar
+            updateProgress(index);
+            
+            // Filter cards with fade transition
+            const stage = step.getAttribute('data-stage');
+            filterCards(stage);
+        });
+    });
+    
+    function updateProgress(index) {
+        if (!progressBar) return;
+        
+        let percentage = 0;
+        if (window.innerWidth <= 768) {
+            // Vertical timeline progress
+            percentage = (index / (steps.length - 1)) * 100;
+            progressBar.style.height = `${percentage}%`;
+            progressBar.style.width = '4px'; // match vertical line width
+        } else {
+            // Horizontal timeline progress
+            percentage = (index / (steps.length - 1)) * 100;
+            progressBar.style.width = `${percentage}%`;
+            progressBar.style.height = '4px'; // match horizontal line height
+        }
+    }
+    
+    function filterCards(stage) {
+        // Step 1: Fade out grid
+        grid.style.opacity = '0';
+        grid.style.transform = 'translateY(15px)';
+        grid.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        
+        setTimeout(() => {
+            // Step 2: Toggle visibility
+            cards.forEach(card => {
+                const cardStage = card.getAttribute('data-stage');
+                if (cardStage === stage) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            // Step 3: Fade in grid
+            grid.style.opacity = '1';
+            grid.style.transform = 'translateY(0)';
+            
+            // Re-run card hover 3D animations
+            document.querySelectorAll('.card').forEach(card => {
+                if (card.style.display !== 'none') {
+                    window.initCardEffects(card);
+                }
+            });
+        }, 300);
+    }
+    
+    // Adjust progress bar style on resize (horizontal vs vertical)
+    window.addEventListener('resize', () => {
+        const activeIndex = Array.from(steps).findIndex(s => s.classList.contains('active'));
+        if (activeIndex !== -1) {
+            updateProgress(activeIndex);
+        }
+    });
+}
+
+// Initialize Search, Pagination, Mobile Menu and Timeline
 function initApp() {
     new SearchManager();
     new PaginationManager();
     setupMobileMenu();
+    setupTimeline();
 }
 
 if (document.readyState === 'loading') {
