@@ -4,7 +4,15 @@
     "url": "trayectoria/practica-1/presentacion-isarm.html",
     "subject": "Práctica I",
     "category": "Práctica Profesional",
-    "excerpt": "Mi perfil personal y profesional elaborado al inicio de Práctica I en abril de 2026. Filosofía de aprendizaje, personalidad y expectativas.",
+    "description": "Mi perfil personal y profesional elaborado al inicio de Práctica I en abril de 2026. Filosofía de aprendizaje, personalidad y expectativas.",
+    "date": "Abril 2026"
+  },
+  {
+    "title": "Autobiografía Escolar: Experiencias que Marcaron mi Formación",
+    "url": "trayectoria/practica-1/autobiografia-escolar.html",
+    "subject": "Práctica I",
+    "category": "Práctica Profesional",
+    "description": "Reconstrucción reflexiva de mi trayectoria en la escuela secundaria BOP N.º 86 de Garupá. El impacto del contexto social y la influencia del vínculo docente.",
     "date": "Abril 2026"
   }
 ]
