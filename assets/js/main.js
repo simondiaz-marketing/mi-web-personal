@@ -209,6 +209,11 @@ window.addEventListener('resize', () => {
 // Interaction Logic
 // Reusable Card Interaction Logic
 window.initCardEffects = function(card) {
+    if (card.classList.contains('upcoming-card') || card.classList.contains('semester-locked')) {
+        card.style.transform = '';
+        return;
+    }
+    
     card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;

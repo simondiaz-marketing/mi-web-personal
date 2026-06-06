@@ -74,31 +74,36 @@
 
             <!-- Timeline Stepper Component -->
             <div class="timeline-container">
-                <div class="timeline-progress-bar">
-                    <div class="timeline-progress" id="timeline-progress"></div>
-                </div>
                 <div class="timeline-steps">
-                    <button class="timeline-step active" data-stage="1-1">
+                    <div class="timeline-progress-bar">
+                        <div class="timeline-progress" id="timeline-progress"></div>
+                    </div>
+                    <button class="timeline-step active" data-stage="1">
                         <span class="step-dot"></span>
-                        <span class="step-label">1º Año - Cursando</span>
-                        <span class="step-sublabel">Anuales / 1º Cuat. (2026)</span>
-                    </button>
-                    <button class="timeline-step" data-stage="1-2">
-                        <span class="step-dot"></span>
-                        <span class="step-label">1º Año - 2º Cuat.</span>
-                        <span class="step-sublabel">Próximamente (2026)</span>
+                        <span class="step-label">1º Año</span>
+                        <span class="step-sublabel">Cursando (2026)</span>
                     </button>
                     <button class="timeline-step" data-stage="2">
                         <span class="step-dot"></span>
                         <span class="step-label">2º Año</span>
-                        <span class="step-sublabel">Plan de Estudios (2027)</span>
+                        <span class="step-sublabel">Plan de Estudios</span>
+                    </button>
+                    <button class="timeline-step" data-stage="3">
+                        <span class="step-dot"></span>
+                        <span class="step-label">3º Año</span>
+                        <span class="step-sublabel">Plan de Estudios</span>
+                    </button>
+                    <button class="timeline-step" data-stage="4">
+                        <span class="step-dot"></span>
+                        <span class="step-label">4º Año</span>
+                        <span class="step-sublabel">Plan de Estudios</span>
                     </button>
                 </div>
             </div>
 
             <div class="grid">
-                <!-- 1º Año - 1º Cuatrimestre / Anuales -->
-                <a href="trayectoria/practica-1/index.html" class="card-link" data-stage="1-1">
+                <!-- 1º Año - Materias Cursadas / En Cursado -->
+                <a href="trayectoria/practica-1/index.html" class="card-link" data-stage="1">
                     <div class="card blog-card">
                         <div class="badge subject-badge">Práctica Profesional</div>
                         <h3>Práctica I</h3>
@@ -107,7 +112,7 @@
                     </div>
                 </a>
 
-                <a href="trayectoria/comunicacion-1/index.html" class="card-link" data-stage="1-1">
+                <a href="trayectoria/comunicacion-1/index.html" class="card-link" data-stage="1">
                     <div class="card blog-card">
                         <div class="badge subject-badge">Habilidades Blandas</div>
                         <h3>Comunicación I</h3>
@@ -116,7 +121,7 @@
                     </div>
                 </a>
 
-                <a href="trayectoria/sistemas-operativos/index.html" class="card-link" data-stage="1-1">
+                <a href="trayectoria/sistemas-operativos/index.html" class="card-link" data-stage="1">
                     <div class="card blog-card">
                         <div class="badge subject-badge">Sistemas y Software</div>
                         <h3>Sistemas Operativos</h3>
@@ -125,16 +130,16 @@
                     </div>
                 </a>
 
-                <a href="trayectoria/arquitectura/index.html" class="card-link" data-stage="1-1">
+                <a href="trayectoria/arquitectura/index.html" class="card-link" data-stage="1">
                     <div class="card blog-card">
                         <div class="badge subject-badge">Hardware y Sistemas</div>
-                        <h3>Arquitectura de Ordenadores</h3>
+                        <h3>Arquitectura de Ordenadores Personales</h3>
                         <p>Comprensión de los componentes y la lógica que hacen posible el funcionamiento de computadoras y sistemas tecnológicos modernos.</p>
                         <span class="read-more">Ver materia y artículos &rarr;</span>
                     </div>
                 </a>
 
-                <a href="trayectoria/taller-ole/index.html" class="card-link" data-stage="1-1">
+                <a href="trayectoria/taller-ole/index.html" class="card-link" data-stage="1">
                     <div class="card blog-card">
                         <div class="badge subject-badge">Comprensión y Escritura</div>
                         <h3>Taller de Oralidad, Lectura y Escritura</h3>
@@ -143,7 +148,7 @@
                     </div>
                 </a>
 
-                <a href="trayectoria/formacion-complementaria/index.html" class="card-link" data-stage="1-1">
+                <a href="trayectoria/formacion-complementaria/index.html" class="card-link" data-stage="1">
                     <div class="card blog-card">
                         <div class="badge subject-badge">Formación Complementaria</div>
                         <h3>Formación Complementaria</h3>
@@ -152,76 +157,152 @@
                     </div>
                 </a>
 
-                <!-- 1º Año - 2º Cuatrimestre -->
-                <div class="card blog-card upcoming-card" data-stage="1-2" style="display: none;">
+                <!-- 1º Año - Segundo Cuatrimestre (Bloqueado con candado) -->
+                <div class="card blog-card upcoming-card semester-locked" data-stage="1">
                     <div class="badge subject-badge">Sistemas y Software</div>
-                    <h3>Software Ofimático II</h3>
-                    <p>Dominio avanzado de planillas de cálculo, automatización de tareas de oficina y gestión de bases de datos para contextos administrativos y educativos.</p>
-                    <span class="read-more">Próximamente &rarr;</span>
+                    <h3>Software Ofimático I</h3>
+                    <div class="locked-indicator">
+                        <svg class="lock-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <span class="lock-text">Segundo Cuatrimestre</span>
+                    </div>
                 </div>
 
-                <!-- 2º Año (2027) -->
+                <!-- 2º Año (Bloqueados con candado, sin descripción) -->
                 <div class="card blog-card upcoming-card" data-stage="2" style="display: none;">
                     <div class="badge subject-badge">Sistemas y Software</div>
                     <h3>Lógica y Programación</h3>
-                    <p>Introducción al pensamiento computacional, estructuras de control, algoritmos y fundamentos de programación orientada a la educación.</p>
-                    <span class="read-more">Próximamente &rarr;</span>
+                    <div class="locked-indicator">
+                        <svg class="lock-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <span class="lock-text">Asignatura no cursada</span>
+                    </div>
+                </div>
+
+                <div class="card blog-card upcoming-card" data-stage="2" style="display: none;">
+                    <div class="badge subject-badge">Sistemas y Software</div>
+                    <h3>Software Ofimático II</h3>
+                    <div class="locked-indicator">
+                        <svg class="lock-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <span class="lock-text">Asignatura no cursada</span>
+                    </div>
                 </div>
 
                 <div class="card blog-card upcoming-card" data-stage="2" style="display: none;">
                     <div class="badge subject-badge">Habilidades Blandas</div>
                     <h3>Comunicación II</h3>
-                    <p>Profundización en dinámicas de comunicación grupal, mediación de conflictos y producción de contenidos académicos de nivel superior.</p>
-                    <span class="read-more">Próximamente &rarr;</span>
+                    <div class="locked-indicator">
+                        <svg class="lock-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <span class="lock-text">Asignatura no cursada</span>
+                    </div>
                 </div>
 
                 <div class="card blog-card upcoming-card" data-stage="2" style="display: none;">
                     <div class="badge subject-badge">Tecnología Educativa</div>
                     <h3>Tecnología de la Información y la Comunicación I</h3>
-                    <p>Integración de herramientas digitales en el diseño curricular y propuestas de enseñanza-aprendizaje basadas en tecnologías emergentes.</p>
-                    <span class="read-more">Próximamente &rarr;</span>
-                </div>
-
-                <div class="card blog-card upcoming-card" data-stage="2" style="display: none;">
-                    <div class="badge subject-badge">Formación Docente</div>
-                    <h3>Sujetos de Aprendizaje</h3>
-                    <p>Análisis del desarrollo psicológico y cognitivo de los estudiantes de secundaria y su relación con los procesos de aprendizaje contemporáneos.</p>
-                    <span class="read-more">Próximamente &rarr;</span>
+                    <div class="locked-indicator">
+                        <svg class="lock-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <span class="lock-text">Asignatura no cursada</span>
+                    </div>
                 </div>
 
                 <div class="card blog-card upcoming-card" data-stage="2" style="display: none;">
                     <div class="badge subject-badge">Sistemas y Software</div>
                     <h3>Aplicaciones de Internet</h3>
-                    <p>Estudio de protocolos de internet, diseño de aplicaciones web educativas y gestión de entornos de aprendizaje en línea (LMS).</p>
-                    <span class="read-more">Próximamente &rarr;</span>
-                </div>
-
-                <div class="card blog-card upcoming-card" data-stage="2" style="display: none;">
-                    <div class="badge subject-badge">Pedagogía y Didáctica</div>
-                    <h3>Didáctica General</h3>
-                    <p>Fundamentos teóricos de la enseñanza, diseño de planificaciones áulicas, estrategias de enseñanza y criterios generales de evaluación.</p>
-                    <span class="read-more">Próximamente &rarr;</span>
-                </div>
-
-                <div class="card blog-card upcoming-card" data-stage="2" style="display: none;">
-                    <div class="badge subject-badge">Formación Docente</div>
-                    <h3>Psicología Educacional</h3>
-                    <p>Teorías del aprendizaje y su aplicación en la práctica docente, dinámicas grupales y variables psicológicas que intervienen en el aula.</p>
-                    <span class="read-more">Próximamente &rarr;</span>
+                    <div class="locked-indicator">
+                        <svg class="lock-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <span class="lock-text">Asignatura no cursada</span>
+                    </div>
                 </div>
 
                 <div class="card blog-card upcoming-card" data-stage="2" style="display: none;">
                     <div class="badge subject-badge">Práctica Profesional</div>
                     <h3>Práctica II</h3>
-                    <p>Observación participativa y primeras intervenciones áulicas en escuelas asociadas de educación secundaria.</p>
-                    <span class="read-more">Próximamente &rarr;</span>
+                    <div class="locked-indicator">
+                        <svg class="lock-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <span class="lock-text">Asignatura no cursada</span>
+                    </div>
                 </div>
 
-                <div class="card blog-card upcoming-card" data-stage="2" style="display: none;">
-                    <div class="badge subject-badge">Formación General</div>
-                    <h3>Teología II</h3>
-                    <p>Reflexión teológica sobre la antropología cristiana, la moral y la acción del docente en el contexto institucional católico.</p>
-                    <span class="read-more">Próximamente &rarr;</span>
+                <!-- 3º Año (Bloqueados con candado, sin descripción) -->
+                <div class="card blog-card upcoming-card" data-stage="3" style="display: none;">
+                    <div class="badge subject-badge">Sistemas y Software</div>
+                    <h3>Procesamiento de Datos</h3>
+                    <div class="locked-indicator">
+                        <svg class="lock-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <span class="lock-text">Asignatura no cursada</span>
+                    </div>
+                </div>
+
+                <div class="card blog-card upcoming-card" data-stage="3" style="display: none;">
+                    <div class="badge subject-badge">Habilidades Blandas</div>
+                    <h3>Comunicación III</h3>
+                    <div class="locked-indicator">
+                        <svg class="lock-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <span class="lock-text">Asignatura no cursada</span>
+                    </div>
+                </div>
+
+                <div class="card blog-card upcoming-card" data-stage="3" style="display: none;">
+                    <div class="badge subject-badge">Sistemas y Software</div>
+                    <h3>Sistemas de Información</h3>
+                    <div class="locked-indicator">
+                        <svg class="lock-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <span class="lock-text">Asignatura no cursada</span>
+                    </div>
+                </div>
+
+                <div class="card blog-card upcoming-card" data-stage="3" style="display: none;">
+                    <div class="badge subject-badge">Hardware y Redes</div>
+                    <h3>Redes, Computadoras y Telemática</h3>
+                    <div class="locked-indicator">
+                        <svg class="lock-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <span class="lock-text">Asignatura no cursada</span>
+                    </div>
+                </div>
+
+                <div class="card blog-card upcoming-card" data-stage="3" style="display: none;">
+                    <div class="badge subject-badge">Práctica Profesional</div>
+                    <h3>Práctica de la Enseñanza</h3>
+                    <div class="locked-indicator">
+                        <svg class="lock-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <span class="lock-text">Asignatura no cursada</span>
+                    </div>
+                </div>
+
+                <!-- 4º Año (Bloqueados con candado, sin descripción) -->
+                <div class="card blog-card upcoming-card" data-stage="4" style="display: none;">
+                    <div class="badge subject-badge">Tecnología Educativa</div>
+                    <h3>Tecnología de la Información y la Comunicación II</h3>
+                    <div class="locked-indicator">
+                        <svg class="lock-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <span class="lock-text">Asignatura no cursada</span>
+                    </div>
+                </div>
+
+                <div class="card blog-card upcoming-card" data-stage="4" style="display: none;">
+                    <div class="badge subject-badge">Diseño y Multimedia</div>
+                    <h3>Diseño Multimedia</h3>
+                    <div class="locked-indicator">
+                        <svg class="lock-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <span class="lock-text">Asignatura no cursada</span>
+                    </div>
+                </div>
+
+                <div class="card blog-card upcoming-card" data-stage="4" style="display: none;">
+                    <div class="badge subject-badge">Sistemas y Software</div>
+                    <h3>Sistemas Empresariales</h3>
+                    <div class="locked-indicator">
+                        <svg class="lock-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <span class="lock-text">Asignatura no cursada</span>
+                    </div>
+                </div>
+
+                <div class="card blog-card upcoming-card" data-stage="4" style="display: none;">
+                    <div class="badge subject-badge">Práctica Profesional</div>
+                    <h3>Residencia Pedagógica</h3>
+                    <div class="locked-indicator">
+                        <svg class="lock-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <span class="lock-text">Asignatura no cursada</span>
+                    </div>
                 </div>
             </div>
         </div>

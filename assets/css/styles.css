@@ -794,15 +794,23 @@ footer {
 
 /* --- Timeline Component --- */
 .timeline-container {
-    max-width: 800px;
+    max-width: 850px;
     margin: 0 auto 5rem auto;
     position: relative;
     padding: 2rem 0;
 }
 
+.timeline-steps {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
 .timeline-progress-bar {
     position: absolute;
-    top: 50%;
+    top: 10px; /* Aligned with center of 20px step-dot */
     left: 0;
     width: 100%;
     height: 4px;
@@ -818,15 +826,7 @@ footer {
     background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
     box-shadow: 0 0 15px rgba(0, 242, 255, 0.6);
     border-radius: 10px;
-    transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.timeline-steps {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    z-index: 2;
-    width: 100%;
+    transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1), height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .timeline-step {
@@ -837,7 +837,7 @@ footer {
     align-items: center;
     cursor: pointer;
     outline: none;
-    width: calc(100% / 3);
+    width: calc(100% / 4);
     text-align: center;
     position: relative;
 }
@@ -851,6 +851,8 @@ footer {
     margin-bottom: 1rem;
     transition: all 0.4s ease;
     box-shadow: 0 0 0 rgba(0, 242, 255, 0);
+    position: relative;
+    z-index: 3; /* Render dot above progress bar */
 }
 
 .timeline-step:hover .step-dot {
@@ -892,21 +894,77 @@ footer {
     border-color: rgba(255, 255, 255, 0.05);
     background: rgba(10, 10, 10, 0.4);
     cursor: default;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    min-height: 160px;
 }
 
 .card.upcoming-card:hover {
     transform: none !important;
     box-shadow: none !important;
-    border-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(0, 242, 255, 0.2);
+}
+
+.card.upcoming-card.semester-locked:hover {
+    border-color: rgba(112, 0, 255, 0.3);
 }
 
 .card.upcoming-card h3 {
     color: var(--text-dim);
+    margin-bottom: auto;
 }
 
-.card.upcoming-card .read-more {
+.locked-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 1rem;
+    margin-top: 1.5rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px dashed rgba(255, 255, 255, 0.1);
     color: var(--text-dim);
-    opacity: 0.6;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.lock-icon {
+    stroke: rgba(255, 255, 255, 0.4);
+    transition: stroke 0.3s ease, filter 0.3s ease;
+}
+
+/* Hover effects for locked cards */
+.card.upcoming-card:hover .locked-indicator {
+    background: rgba(0, 242, 255, 0.05);
+    border-color: rgba(0, 242, 255, 0.3);
+    color: var(--accent-primary);
+}
+
+.card.upcoming-card:hover .lock-icon {
+    stroke: var(--accent-primary);
+    filter: drop-shadow(0 0 8px rgba(0, 242, 255, 0.8));
+    animation: lock-shake 0.5s ease-in-out;
+}
+
+/* Special styles for first-year second-semester locked cards (soft purple/amber) */
+.card.upcoming-card.semester-locked:hover .locked-indicator {
+    background: rgba(112, 0, 255, 0.05);
+    border-color: rgba(112, 0, 255, 0.3);
+    color: #b070ff;
+}
+
+.card.upcoming-card.semester-locked:hover .lock-icon {
+    stroke: #b070ff;
+    filter: drop-shadow(0 0 8px rgba(112, 0, 255, 0.8));
+}
+
+@keyframes lock-shake {
+    0%, 100% { transform: rotate(0); }
+    20%, 60% { transform: rotate(-10deg); }
+    40%, 80% { transform: rotate(10deg); }
 }
 
 /* Transitions for dynamic cards */
@@ -933,11 +991,11 @@ footer {
         padding-left: 2rem;
     }
     .timeline-progress-bar {
-        left: 2.5rem;
+        left: 42px; /* 2rem padding-left (32px) + 10px (center of 20px step-dot) */
         top: 0;
         width: 4px;
         height: 100%;
-        transform: none;
+        transform: translateX(-50%);
     }
     .timeline-progress {
         height: 0%;
