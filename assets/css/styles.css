@@ -782,6 +782,22 @@ footer {
     text-align: right;
 }
 
+.pagination-card {
+    backdrop-filter: blur(10px);
+}
+
+@media (max-width: 768px) {
+    .article-pagination {
+        grid-template-columns: 1fr;
+    }
+    .pagination-card.next {
+        text-align: left;
+    }
+    .pagination-title {
+        font-size: 1.1rem;
+    }
+}
+
 @media (max-width: 768px) {
     .search-header input {
         font-size: 1.5rem;
