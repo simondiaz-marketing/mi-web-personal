@@ -732,46 +732,48 @@ footer {
 
 /* --- Article Pagination --- */
 .article-pagination {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 6rem;
-    padding-top: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-top: 4rem;
+    padding-top: 2rem;
     border-top: 1px solid var(--glass-border);
 }
 
 .pagination-card {
-    background: var(--card-bg);
-    border: 1px solid var(--glass-border);
-    padding: 2rem;
-    border-radius: 24px;
     text-decoration: none;
     color: inherit;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.4rem;
+    padding: 1rem 1.2rem;
+    border-radius: 12px;
+    transition: background 0.3s ease;
+    max-width: 45%;
 }
 
 .pagination-card:hover {
-    border-color: var(--accent-primary);
-    background: rgba(255, 255, 255, 0.08);
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .pagination-label {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     color: var(--accent-primary);
     font-weight: 700;
 }
 
 .pagination-title {
-    font-size: 1.4rem;
-    font-weight: 700;
-    line-height: 1.3;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--text-dim);
+}
+
+.pagination-card:hover .pagination-title {
+    color: var(--text-main);
 }
 
 .pagination-card.prev {
@@ -780,21 +782,19 @@ footer {
 
 .pagination-card.next {
     text-align: right;
-}
-
-.pagination-card {
-    backdrop-filter: blur(10px);
+    margin-left: auto;
 }
 
 @media (max-width: 768px) {
     .article-pagination {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .pagination-card {
+        max-width: 100%;
     }
     .pagination-card.next {
         text-align: left;
-    }
-    .pagination-title {
-        font-size: 1.1rem;
     }
 }
 
