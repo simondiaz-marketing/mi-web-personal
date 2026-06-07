@@ -1,12 +1,88 @@
-# Simón Diaz - Mi Web Personal
+# Portafolio Académico – Simón Díaz
 
-Este es el repositorio de mi página web y portafolio personal.
+Sitio web desarrollado como portafolio digital para documentar y evidenciar la trayectoria formativa en el Profesorado de Educación Secundaria en Tecnologías de la Información y la Comunicación del Instituto Superior Antonio Ruiz de Montoya (ISARM).
 
-## ¿Cómo se construyó este sitio?
+## Descripción
 
-Este proyecto fue desarrollado utilizando un flujo de trabajo moderno y automatizado, apoyado por las siguientes tecnologías y herramientas:
+Este proyecto reúne producciones académicas, actividades curriculares y extracurriculares, reflexiones, proyectos, recursos digitales y experiencias vinculadas a la formación docente en TIC.
 
-* **Antigravity IDE**: Utilizado como entorno de desarrollo asistido por IA para acelerar la creación, refactorización y despliegue del código.
-* **Tecnologías Web Core**: Estructurado de forma ligera y rápida utilizando **HTML**, **CSS** y **JavaScript** sin depender de frameworks pesados.
-* **API de YouTube**: Integración y automatización para gestionar y mantener siempre actualizada la sección de videos del sitio.
-* **Despliegue Automatizado**: Uso de scripts y Webhooks para asegurar un despliegue continuo y eficiente.
+El objetivo del portafolio es registrar de manera organizada el proceso de aprendizaje, permitiendo visualizar la evolución de conocimientos, competencias digitales y experiencias educativas desarrolladas a lo largo de la carrera.
+
+## Objetivos del sitio
+
+- Documentar la trayectoria académica.
+- Organizar evidencias de aprendizaje.
+- Integrar producciones digitales y proyectos.
+- Favorecer la reflexión sobre la práctica docente.
+- Construir una identidad profesional en formación.
+
+## Estructura del portafolio
+
+```text
+Inicio
+├── Presentación general
+├── Sobre mí
+├── Trayectoria Académica
+│   ├── Primer Año
+│   ├── Segundo Año
+│   ├── Tercer Año
+│   └── Cuarto Año
+├── Actividades Extracurriculares
+├── Producción Digital y Divulgación Tecnológica
+└── Contacto
+```
+
+## Tecnologías utilizadas
+
+- HTML5
+- CSS3
+- JavaScript
+- Git
+- GitHub
+- Cloudflare Pages
+- Vercel
+
+## Características
+
+- Diseño responsive.
+- Navegación optimizada para dispositivos móviles y escritorio.
+- Integración de recursos multimedia.
+- Publicación de artículos y evidencias académicas.
+- Organización por años de cursada y espacios curriculares.
+- Enlaces a producciones digitales externas.
+
+## Implementación local
+
+Clonar el repositorio:
+
+```bash
+git clone https://github.com/simondiaz-marketing/mi-web-personal.git
+```
+
+Ingresar al directorio:
+
+```bash
+cd mi-web-personal
+```
+
+Abrir el archivo `index.html` en el navegador o utilizar un servidor local.
+
+## Propósito pedagógico
+
+Este portafolio constituye una evidencia digital del proceso de formación docente en Tecnologías de la Información y la Comunicación. Su finalidad es registrar experiencias, aprendizajes, proyectos y producciones desarrolladas durante la carrera, promoviendo la reflexión sobre la práctica educativa y la construcción progresiva de una identidad profesional docente.
+
+## Estado del proyecto
+
+Proyecto en desarrollo y actualización permanente conforme avanza la trayectoria académica y profesional.
+
+## Autor
+
+**Simón Díaz**
+
+Estudiante del Profesorado de Educación Secundaria en Tecnologías de la Información y la Comunicación.
+
+## Licencia
+
+Este proyecto tiene fines académicos y educativos.
+
+Todos los contenidos, producciones y recursos incluidos en este repositorio pertenecen a su autor, salvo que se indique lo contrario.
