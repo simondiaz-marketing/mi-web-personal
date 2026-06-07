@@ -2,21 +2,11 @@
 
 Este es el repositorio de mi página web y portafolio personal.
 
-## Estructura del Proyecto
+## ¿Cómo se construyó este sitio?
 
-* **`index.html`**: Página principal o de inicio.
-* **`sobre-mi.html`**: Información personal y biografía.
-* **`trayectoria.html`**: Trayectoria académica y profesional.
-* **`videos.html`**: Sección de contenido multimedia y videos.
-* **`contacto.html`**: Formulario e información de contacto.
+Este proyecto fue desarrollado utilizando un flujo de trabajo moderno y automatizado, apoyado por las siguientes tecnologías y herramientas:
 
-## Despliegue
-
-El sitio incluye configuración para despliegue (como `vercel.json` y `_headers`) y utiliza scripts de PowerShell para automatizar la publicación y flujos de Git:
-* `deploy.ps1`
-* `watch-deploy.ps1`
-* `setup-git-hook.ps1`
-
-## Recursos adicionales
-* La carpeta `assets/` contiene estilos, imágenes y otros recursos estáticos.
-* La carpeta `data/` se utiliza para estructurar información.
+* **Antigravity IDE**: Utilizado como entorno de desarrollo asistido por IA para acelerar la creación, refactorización y despliegue del código.
+* **Tecnologías Web Core**: Estructurado de forma ligera y rápida utilizando **HTML**, **CSS** y **JavaScript** sin depender de frameworks pesados.
+* **API de YouTube**: Integración y automatización para gestionar y mantener siempre actualizada la sección de videos del sitio.
+* **Despliegue Automatizado**: Uso de scripts y Webhooks para asegurar un despliegue continuo y eficiente.
