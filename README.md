@@ -51,21 +51,6 @@ Inicio
 - Organización por años de cursada y espacios curriculares.
 - Enlaces a producciones digitales externas.
 
-## Implementación local
-
-Clonar el repositorio:
-
-```bash
-git clone https://github.com/simondiaz-marketing/mi-web-personal.git
-```
-
-Ingresar al directorio:
-
-```bash
-cd mi-web-personal
-```
-
-Abrir el archivo `index.html` en el navegador o utilizar un servidor local.
 
 ## Propósito pedagógico
 
@@ -80,6 +65,7 @@ Proyecto en desarrollo y actualización permanente conforme avanza la trayectori
 **Simón Díaz**
 
 Estudiante del Profesorado de Educación Secundaria en Tecnologías de la Información y la Comunicación.
+Instituto Superior Antonio Ruiz de Montoya (Posadas, Misiones)
 
 ## Licencia
 
