@@ -1,11 +1,10 @@
 /**
  * ArticleNavManager
- * Automatically injects prev/next navigation at the bottom of article pages.
- * Reads article order from academic-posts.json.
+ * Shows related articles from the same section at the bottom of article pages.
+ * Reads data from academic-posts.json and filters by matching `subject`.
  */
 export class ArticleNavManager {
     constructor() {
-        // Only run on article pages
         if (!document.body.classList.contains('article-page')) return;
         this.init();
     }
@@ -17,20 +16,21 @@ export class ArticleNavManager {
         const currentIndex = this.findCurrentArticle(posts);
         if (currentIndex === -1) return;
 
-        const prevPost = currentIndex > 0 ? posts[currentIndex - 1] : null;
-        const nextPost = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null;
+        const currentPost = posts[currentIndex];
+        // Filter related: same subject, excluding current article
+        const related = posts.filter((post, i) =>
+            i !== currentIndex && post.subject === currentPost.subject
+        );
 
-        if (!prevPost && !nextPost) return;
+        if (related.length === 0) return;
 
-        this.render(prevPost, nextPost);
+        this.render(related);
     }
 
     findCurrentArticle(posts) {
         const path = decodeURIComponent(window.location.pathname).replace(/^\//, '');
-        // Try exact match first, then fallback to filename match
         let index = posts.findIndex(post => path.endsWith(post.url));
         if (index === -1) {
-            // Fallback: match just the filename
             const currentFile = path.split('/').pop();
             index = posts.findIndex(post => post.url.endsWith(currentFile));
         }
@@ -53,7 +53,6 @@ export class ArticleNavManager {
                 continue;
             }
         }
-        console.warn('ArticleNavManager: Could not load academic-posts.json');
         return null;
     }
 
@@ -67,51 +66,45 @@ export class ArticleNavManager {
         return '';
     }
 
-    render(prevPost, nextPost) {
+    render(relatedPosts) {
         const prefix = this.getRelativePrefix();
 
-        const nav = document.createElement('nav');
-        nav.className = 'article-pagination';
-        nav.setAttribute('aria-label', 'Navegación entre artículos');
+        const section = document.createElement('section');
+        section.className = 'related-articles';
+        section.setAttribute('aria-label', 'Artículos relacionados');
 
-        // Previous article
-        if (prevPost) {
-            const prevLink = document.createElement('a');
-            prevLink.href = prefix + prevPost.url;
-            prevLink.className = 'pagination-card prev';
-            prevLink.innerHTML = `
-                <span class="pagination-label">← Artículo anterior</span>
-                <span class="pagination-title">${prevPost.title}</span>
-            `;
-            nav.appendChild(prevLink);
-        } else {
-            nav.appendChild(document.createElement('div'));
-        }
+        const title = document.createElement('h2');
+        title.className = 'related-articles__title';
+        title.textContent = 'Otros artículos de esta sección';
+        section.appendChild(title);
 
-        // Next article
-        if (nextPost) {
-            const nextLink = document.createElement('a');
-            nextLink.href = prefix + nextPost.url;
-            nextLink.className = 'pagination-card next';
-            nextLink.innerHTML = `
-                <span class="pagination-label">Artículo siguiente →</span>
-                <span class="pagination-title">${nextPost.title}</span>
+        const grid = document.createElement('div');
+        grid.className = 'related-articles__grid';
+
+        relatedPosts.forEach(post => {
+            const card = document.createElement('a');
+            card.href = prefix + post.url;
+            card.className = 'related-articles__card';
+
+            card.innerHTML = `
+                <div class="related-articles__badge">${post.category}</div>
+                <h3 class="related-articles__card-title">${post.title}</h3>
+                <p class="related-articles__description">${post.description}</p>
+                <span class="related-articles__link">Leer artículo →</span>
             `;
-            nav.appendChild(nextLink);
-        } else {
-            nav.appendChild(document.createElement('div'));
-        }
+
+            grid.appendChild(card);
+        });
+
+        section.appendChild(grid);
 
         // Insert inside article-content, after article-body
         const articleContent = document.querySelector('.article-content');
         if (articleContent) {
-            articleContent.appendChild(nav);
+            articleContent.appendChild(section);
         } else {
-            // Fallback: insert before footer
             const footer = document.querySelector('footer');
-            if (footer) {
-                footer.parentNode.insertBefore(nav, footer);
-            }
+            if (footer) footer.parentNode.insertBefore(section, footer);
         }
     }
 }
