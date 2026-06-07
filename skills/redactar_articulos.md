@@ -44,7 +44,7 @@ simondiaz.pages.dev/           ← GitHub Pages / Cloudflare Pages
     ├── taller-ole/
     │   ├── index.html
     │   └── [slug-articulo].html
-    └── formacion-complementaria/
+    └── actividades-complementarias/
         ├── index.html
         └── [slug-articulo].html
 ```
@@ -63,7 +63,7 @@ Ejemplo: "Algoritmos de Planificación de CPU" → `algoritmos-planificacion-cpu
 | Sistemas Operativos | `sistemas-operativos` | Sistemas y Software |
 | Arquitectura de Ordenadores | `arquitectura` | Hardware y Sistemas |
 | Taller de Oralidad, Lectura y Escritura | `taller-ole` | Comprensión y Escritura |
-| Formación Complementaria | `formacion-complementaria` | Formación Complementaria |
+| Formación Complementaria | `actividades-complementarias` | Formación Complementaria |
 
 ---
 
