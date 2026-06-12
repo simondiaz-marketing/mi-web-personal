@@ -1,53 +1,17 @@
-const YOUTUBE_API_KEY = 'AIzaSyBq1KpBjQpIZuGWHVnzs_4B3V5jb86YEeM';
-const CHANNEL_ID = 'UCRjEetcMz3rKhFAEQJN-Jag';
-
 async function fetchLatestVideos() {
-    // Increase maxResults to have enough videos after filtering
-    const searchUrl = `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=15&type=video`;
-    
     try {
-        const response = await fetch(searchUrl);
+        // Llamamos a nuestra función Serverless de Vercel (oculta la API Key)
+        const response = await fetch('/api/youtube');
         const data = await response.json();
         
-        if (data.items) {
-            const videoIds = data.items.map(item => item.id.videoId).join(',');
-            
-            // Fetch detailed info to get duration
-            const detailsUrl = `https://www.googleapis.com/youtube/v3/videos?key=${YOUTUBE_API_KEY}&id=${videoIds}&part=contentDetails,snippet`;
-            const detailsResponse = await fetch(detailsUrl);
-            const detailsData = await detailsResponse.json();
-            
-            // Filter out Shorts (less than 60 seconds)
-            // YouTube duration format is ISO 8601 (e.g., PT1M2S)
-            const longFormVideos = detailsData.items.filter(video => {
-                const duration = video.contentDetails.duration;
-                return !isShort(duration);
-            }).slice(0, 6); // Take only the first 6 after filtering
-            
-            renderVideos(longFormVideos);
+        if (data.items && data.items.length > 0) {
+            renderVideos(data.items);
+        } else if (data.error) {
+            console.error('Error desde el servidor:', data.error);
         }
     } catch (error) {
-        console.error('Error fetching YouTube videos:', error);
+        console.error('Error al obtener videos de YouTube:', error);
     }
-}
-
-function isShort(duration) {
-    // YouTube duration format is ISO 8601 (e.g., PT1M2S, PT45S)
-    // We want to filter out videos shorter than 90 seconds.
-    
-    // If it has hours, it's definitely not a short
-    if (duration.includes('H')) return false;
-
-    // Extract minutes and seconds
-    const minutesMatch = duration.match(/(\d+)M/);
-    const secondsMatch = duration.match(/(\d+)S/);
-    
-    const minutes = minutesMatch ? parseInt(minutesMatch[1]) : 0;
-    const seconds = secondsMatch ? parseInt(secondsMatch[1]) : 0;
-    
-    const totalSeconds = (minutes * 60) + seconds;
-    
-    return totalSeconds < 90;
 }
 
 function renderVideos(videos) {
