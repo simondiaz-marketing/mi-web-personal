@@ -28,12 +28,21 @@ export class ArticleNavManager {
     }
 
     findCurrentArticle(posts) {
-        const path = decodeURIComponent(window.location.pathname).replace(/^\//, '');
-        let index = posts.findIndex(post => path.endsWith(post.url));
-        if (index === -1) {
-            const currentFile = path.split('/').pop();
-            index = posts.findIndex(post => post.url.endsWith(currentFile));
+        let path = decodeURIComponent(window.location.pathname);
+        let pathBase = path.split('/').pop().replace(/\.html$/, '');
+        
+        // Si la URL termina en slash (ej: /practica-1/), pathBase estará vacío.
+        // En ese caso tomamos el último segmento real.
+        if (!pathBase) {
+            const segments = path.split('/').filter(Boolean);
+            pathBase = segments.pop() || 'index';
         }
+
+        let index = posts.findIndex(post => {
+            const postBase = post.url.split('/').pop().replace(/\.html$/, '');
+            return pathBase === postBase;
+        });
+        
         return index;
     }
 
