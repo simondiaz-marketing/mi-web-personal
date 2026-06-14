@@ -177,18 +177,26 @@ nav {
     text-decoration: none;
     color: var(--text-secondary);
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
     font-size: 0.9rem;
     text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
 }
 
-.nav-links a:hover, .search-trigger-nav a:hover {
+.nav-links a:hover {
+    color: #ffffff;
+    background-color: rgba(0, 51, 102, 0.8);
+}
+
+.search-trigger-nav a:hover {
     color: #00f2fe;
 }
 
 .nav-links a.active {
-    color: var(--accent-primary);
-    text-shadow: 0 0 8px rgba(0, 242, 254, 0.5);
+    color: #ffffff;
+    background-color: #003366;
+    text-shadow: none;
     font-weight: 700;
 }
 
