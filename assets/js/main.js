@@ -23,10 +23,10 @@ for(let i=0; i < particlesCount * 3; i++) {
 particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
 
 const particlesMaterial = new THREE.PointsMaterial({
-    size: 0.012,
-    color: 0x083A59,
+    size: 0.005,
+    color: 0x4facfe,
     transparent: true,
-    opacity: 0.85
+    opacity: 0.4
 });
 
 const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
