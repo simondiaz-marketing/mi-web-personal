@@ -98,17 +98,32 @@ section {
     justify-content: space-between;
 }
 
+.card.blog-card {
+    background-color: #003366 !important;
+    color: #ffffff !important;
+    border: 1px solid #004080 !important;
+}
+
+.card.blog-card h3, .card.blog-card p, .card.blog-card .read-more {
+    color: #ffffff !important;
+}
+
+.card-date {
+    font-size: 0.85rem;
+    color: #b0b0b0 !important;
+    margin-top: -0.2rem;
+    margin-bottom: 0.8rem;
+    font-style: italic;
+    display: block;
+}
+
+.card.blog-card.upcoming-card {
+    background-color: rgba(0, 51, 102, 0.5) !important;
+    border-color: rgba(0, 51, 102, 0.3) !important;
+}
+
 .badge {
-    display: inline-block;
-    padding: 0.4rem 1rem;
-    background: rgba(79, 172, 254, 0.1);
-    border: 1px solid #4facfe;
-    color: #4facfe;
-    border-radius: 50px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    width: fit-content;
+    display: none !important;
 }
 
 .read-more {
@@ -914,16 +929,17 @@ footer {
 }
 
 .related-articles__card {
-    background: var(--card-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 16px;
+    background-color: #003366 !important;
+    color: #ffffff !important;
+    border: 1px solid #004080 !important;
+    border-radius: 12px;
     padding: 1.5rem;
-    text-decoration: none;
-    color: inherit;
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
-    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    justify-content: space-between;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 .related-articles__card:hover {
@@ -947,17 +963,15 @@ footer {
 }
 
 .related-articles__card-title {
-    font-size: 1.05rem;
-    font-weight: 700;
-    line-height: 1.4;
-    color: var(--accent-primary);
-    margin: 0;
+    font-size: 1.1rem;
+    color: #ffffff !important;
+    margin-bottom: 0.5rem;
 }
 
 .related-articles__description {
-    font-size: 0.85rem;
-    line-height: 1.6;
-    color: var(--text-dim);
+    font-size: 0.95rem;
+    color: #e0e0e0 !important;
+    line-height: 1.5;
     margin: 0;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -966,10 +980,14 @@ footer {
 }
 
 .related-articles__link {
-    font-size: 0.85rem;
+    color: #ffffff !important;
     font-weight: 600;
-    color: var(--accent-primary);
-    margin-top: auto;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s ease;
 }
 
 .related-articles__card:hover .related-articles__link {
