@@ -96,8 +96,8 @@ export class ArticleNavManager {
             card.className = 'related-articles__card';
 
             card.innerHTML = `
-                <div class="related-articles__badge">${post.category}</div>
                 <h3 class="related-articles__card-title">${post.title}</h3>
+                <p class="card-date" style="margin-top: 0; margin-bottom: 0.5rem;">${post.date}</p>
                 <p class="related-articles__description">${post.description}</p>
                 <span class="related-articles__link">Leer artículo →</span>
             `;
