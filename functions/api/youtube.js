@@ -40,7 +40,7 @@ export async function onRequest(context) {
                 const minutes = minutesMatch ? parseInt(minutesMatch[1]) : 0;
                 const seconds = secondsMatch ? parseInt(secondsMatch[1]) : 0;
                 const totalSeconds = (minutes * 60) + seconds;
-                return totalSeconds < 90;
+                return totalSeconds < 120;
             };
 
             const longFormVideos = detailsData.items.filter(video => {
