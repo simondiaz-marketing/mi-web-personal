@@ -1,5 +1,12 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { sortArticlesByDate } from '../../utils/dates';
+
+const articulos = await getCollection('trayectoria');
+const subjectArticles = sortArticlesByDate(
+    articulos.filter(a => a.data.subject === 'Comunicación I' || a.data.subject === 'Habilidades Blandas')
+);
 ---
 
 <Layout title="Comunicación I | Trayectoria Académica | Simón Diaz" description="Artículos desarrollados para la materia Comunicación I por Simón Diaz.">
@@ -13,7 +20,21 @@ import Layout from '../../layouts/Layout.astro';
             </p>
 
             <div class="grid">
-                <p style="grid-column: 1/-1; text-align: center; color: var(--text-dim); margin: 3rem 0; font-size: 1.1rem;">Próximamente se publicarán los artículos de esta materia.</p>
+                {subjectArticles.length > 0 ? (
+                    subjectArticles.map(articulo => (
+                        <a href={`/trayectoria/${articulo.slug}`} class="card-link">
+                            <div class="card blog-card">
+                                <div class="badge subject-badge">{articulo.data.badge}</div>
+                                <h3>{articulo.data.title}</h3>
+                                <p class="card-date">{articulo.data.date}</p>
+                                <p>{articulo.data.description}</p>
+                                <span class="read-more">Leer artículo &rarr;</span>
+                            </div>
+                        </a>
+                    ))
+                ) : (
+                    <p style="grid-column: 1/-1; text-align: center; color: var(--text-dim); margin: 3rem 0; font-size: 1.1rem;">Próximamente se publicarán los artículos de esta materia.</p>
+                )}
             </div>
         </div>
     </section>
