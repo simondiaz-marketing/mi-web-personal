@@ -1,3 +1,5 @@
+import type { CollectionEntry } from 'astro:content';
+
 export function parseSpanishDate(dateString: string): number {
     const months: Record<string, number> = {
         enero: 0, febrero: 1, marzo: 2, abril: 3, mayo: 4, junio: 5,
@@ -33,8 +35,8 @@ export function parseSpanishDate(dateString: string): number {
     return new Date(year, month, day).getTime();
 }
 
-export function sortArticlesByDate(articles: any[]) {
-    return articles.sort((a, b) => {
+export function sortArticlesByDate(articles: CollectionEntry<'trayectoria'>[]) {
+    return [...articles].sort((a, b) => {
         return parseSpanishDate(b.data.date) - parseSpanishDate(a.data.date);
     });
 }
