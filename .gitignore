@@ -24,3 +24,9 @@ tmp/
 !_headers
 !_redirects
 !favicon.png
+
+# Node.js y Astro
+node_modules/
+dist/
+.astro/
+package-lock.json
