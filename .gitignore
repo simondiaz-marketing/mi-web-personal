@@ -2,6 +2,8 @@
 .venv/
 __pycache__/
 .gemini/
+.env
+node_modules/
 
 # IDEs and Tools
 *.code-workspace
