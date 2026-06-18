@@ -14,7 +14,7 @@ const { articulo } = Astro.props;
 const { Content } = await articulo.render();
 ---
 
-<Layout title={`${articulo.data.title} | Simón Diaz`} description={articulo.data.description}>
+<Layout title={`${articulo.data.title} | Simón Diaz`} description={articulo.data.description} bodyClass="article-page">
     <div class="article-content" style="padding-top: 8rem; max-width: 800px; margin: 0 auto; padding-bottom: 4rem;">
         <a href="javascript:history.back()" class="back-link" style="color: var(--accent-primary); text-decoration: none; font-weight: 600;">&larr; Volver</a>
         

@@ -2,9 +2,10 @@
 export interface Props {
 	title: string;
 	description?: string;
+	bodyClass?: string;
 }
 
-const { title, description = "Portafolio académico de Simón Diaz, estudiante del Profesorado de Educación Secundaria en Tecnologías de la Información y la Comunicación en el ISPARM." } = Astro.props;
+const { title, description = "Portafolio académico de Simón Diaz, estudiante del Profesorado de Educación Secundaria en Tecnologías de la Información y la Comunicación en el ISPARM.", bodyClass = "" } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -30,7 +31,7 @@ const { title, description = "Portafolio académico de Simón Diaz, estudiante d
     <link rel="icon" type="image/png" href="/assets/img/favicon.png">
     <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
-<body>
+<body class={bodyClass}>
     <div id="canvas-container"></div>
 
     <nav>
