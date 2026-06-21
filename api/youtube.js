@@ -1,4 +1,12 @@
 export default async function handler(req, res) {
+    if (req.method !== 'GET') {
+        res.setHeader('Allow', ['GET']);
+        return res.status(405).json({ error: `Method ${req.method} Not Allowed` });
+    }
+    
+    // Configurar caché: s-maxage indica cuánto tiempo Vercel Edge Cache lo guardará (1 hora)
+    res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate');
+
     const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
     const CHANNEL_ID = 'UCRjEetcMz3rKhFAEQJN-Jag';
 
