@@ -34,13 +34,12 @@ Inicio
 
 ## Tecnologías utilizadas
 
+- **Astro** (Framework principal)
 - HTML5
-- CSS3
+- CSS3 (Vanilla)
 - JavaScript
-- Git
-- GitHub
-- Cloudflare Pages
-- Vercel
+- Git & GitHub
+- Vercel (Despliegue principal)
 
 ## Características
 
