@@ -34,13 +34,16 @@ Inicio
 
 ## Tecnologías utilizadas
 
+### Framework y Lenguajes
 - **Astro** (Framework principal)
-- HTML5
-- CSS3 (Vanilla)
-- JavaScript
+- **HTML5**, **CSS3 (Vanilla)** y **JavaScript**
+
+### Herramientas de Desarrollo
 - **Antigravity IDE** (Entorno de desarrollo asistido por IA)
-- Git & GitHub
-- Vercel (Despliegue principal)
+- **Git** y **GitHub** (Control de versiones)
+
+### Despliegue y Alojamiento
+- **Vercel** (Hosting y despliegue continuo)
 
 ## Características
 
