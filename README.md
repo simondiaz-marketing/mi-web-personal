@@ -35,15 +35,17 @@ Inicio
 ## Tecnologías utilizadas
 
 ### Framework y Lenguajes
-- **Astro** (Framework principal)
-- **HTML5**, **CSS3 (Vanilla)** y **JavaScript**
+- **Astro**: El motor principal que construye y ensambla la página web de forma ultra rápida.
+- **HTML5**: La estructura o el "esqueleto" del sitio (textos, imágenes, divisiones).
+- **CSS3 (Vanilla)**: La estética y el diseño visual (colores, fuentes y animaciones) construidos artesanalmente desde cero sin plantillas prefabricadas.
+- **JavaScript**: La lógica que le da interactividad y dinamismo a la página.
 
 ### Herramientas de Desarrollo
-- **Antigravity IDE** (Entorno de desarrollo asistido por IA)
-- **Git** y **GitHub** (Control de versiones)
+- **Antigravity IDE**: Entorno de desarrollo inteligente con inteligencia artificial que me asistió durante toda la programación.
+- **Git y GitHub**: Sistema de guardado histórico y copia de seguridad en la nube que registra paso a paso la evolución de todo el código.
 
 ### Despliegue y Alojamiento
-- **Vercel** (Hosting y despliegue continuo)
+- **Vercel**: El servidor seguro en internet donde la página está almacenada y publicada para que el mundo entero pueda visitarla.
 
 ## Características
 
