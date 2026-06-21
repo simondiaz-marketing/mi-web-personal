@@ -38,6 +38,7 @@ Inicio
 - HTML5
 - CSS3 (Vanilla)
 - JavaScript
+- **Antigravity IDE** (Entorno de desarrollo asistido por IA)
 - Git & GitHub
 - Vercel (Despliegue principal)
 
