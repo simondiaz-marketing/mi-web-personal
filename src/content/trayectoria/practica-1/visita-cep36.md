@@ -9,7 +9,7 @@ subject: "Práctica I"
 En el marco de la asignatura **Práctica I** del Profesorado en Educación Secundaria en Tecnologías de la Información y la Comunicación, se realizó una visita institucional al **CEP N.º 36**, con el objetivo de conocer su funcionamiento desde una perspectiva organizacional, pedagógica y social. La experiencia se desarrolló a partir de una entrevista al director de la institución, Orlando Lorenzo Alé, complementada con instancias de observación directa de los espacios escolares y su dinámica cotidiana.
 
 <div class="article-image-container" style="margin: 3rem 0; text-align: center;">
-    <img src="/img/practica-1/ENTRADA CEP 36.png" alt="Entrada del CEP N.º 36" style="width: 100%; height: auto; max-height: 500px; object-fit: cover; border-radius: 16px; border: 1px solid var(--glass-border); box-shadow: 0 15px 35px rgba(0,0,0,0.4);">
+    <img src="/img/practica-1/entrada-cep-36.webp" alt="Entrada del CEP N.º 36" style="width: 100%; height: auto; max-height: 500px; object-fit: cover; border-radius: 16px; border: 1px solid var(--glass-border); box-shadow: 0 15px 35px rgba(0,0,0,0.4);">
     <p style="font-size: 0.9rem; color: var(--text-dim); margin-top: 0.8rem; font-style: italic;">Fachada principal del CEP N.º 36 sobre Avenida Corrientes en Posadas.</p>
 </div>
 
@@ -21,7 +21,7 @@ El turno mañana cuenta con orientación en **Humanidades**, mientras que el tur
 Durante la visita se pudo observar una estructura organizativa compuesta por múltiples divisiones en ambos turnos, lo que refleja una matrícula significativa y una dinámica institucional compleja.
 
 <div class="article-image-container" style="margin: 3rem 0; text-align: center;">
-    <img src="/img/practica-1/MASTIL BANDERAS.png" alt="Mástil de Banderas en el patio" style="width: 100%; height: auto; max-height: 500px; object-fit: cover; border-radius: 16px; border: 1px solid var(--glass-border); box-shadow: 0 15px 35px rgba(0,0,0,0.4);">
+    <img src="/img/practica-1/mastil-banderas.webp" alt="Mástil de Banderas en el patio" style="width: 100%; height: auto; max-height: 500px; object-fit: cover; border-radius: 16px; border: 1px solid var(--glass-border); box-shadow: 0 15px 35px rgba(0,0,0,0.4);">
     <p style="font-size: 0.9rem; color: var(--text-dim); margin-top: 0.8rem; font-style: italic;">Patio central de la escuela y su histórico mástil de banderas.</p>
 </div>
 
@@ -35,7 +35,7 @@ La institución desarrolla además diversas actividades comunitarias y formativa
 > "La relación entre la escuela y la comunidad constituye una parte muy importante de la experiencia educativa cotidiana."
 
 <div class="article-image-container" style="margin: 3rem 0; text-align: center;">
-    <img src="/img/practica-1/BUENAS PRÁCTICAS.png" alt="Cartel de Buenas Prácticas" style="width: 100%; height: auto; max-height: 500px; object-fit: cover; border-radius: 16px; border: 1px solid var(--glass-border); box-shadow: 0 15px 35px rgba(0,0,0,0.4);">
+    <img src="/img/practica-1/buenas-practicas.webp" alt="Cartel de Buenas Prácticas" style="width: 100%; height: auto; max-height: 500px; object-fit: cover; border-radius: 16px; border: 1px solid var(--glass-border); box-shadow: 0 15px 35px rgba(0,0,0,0.4);">
     <p style="font-size: 0.9rem; color: var(--text-dim); margin-top: 0.8rem; font-style: italic;">Paredes e infografías institucionales promoviendo valores de convivencia y buenas prácticas en la comunidad.</p>
 </div>
 
@@ -47,12 +47,12 @@ Respecto a los recursos tecnológicos, la escuela dispone de proyectores, pantal
 También se destacó la incorporación reciente de una pantalla moderna utilizada en el SUM, lo que representa una mejora en la disponibilidad de recursos tecnológicos. A pesar de estos avances, persiste la necesidad de fortalecer la infraestructura tecnológica general para potenciar las propuestas pedagógicas mediadas por recursos digitales en cada aula.
 
 <div class="article-image-container" style="margin: 3rem 0; text-align: center;">
-    <img src="/img/practica-1/ZOOM.png" alt="Instalaciones del SUM" style="width: 100%; height: auto; max-height: 500px; object-fit: cover; border-radius: 16px; border: 1px solid var(--glass-border); box-shadow: 0 15px 35px rgba(0,0,0,0.4);">
+    <img src="/img/practica-1/zoom.webp" alt="Instalaciones del SUM" style="width: 100%; height: auto; max-height: 500px; object-fit: cover; border-radius: 16px; border: 1px solid var(--glass-border); box-shadow: 0 15px 35px rgba(0,0,0,0.4);">
     <p style="font-size: 0.9rem; color: var(--text-dim); margin-top: 0.8rem; font-style: italic;">Vista del Salón de Usos Múltiples (SUM), espacio clave para actos y exposiciones.</p>
 </div>
 
 <div class="article-image-container" style="margin: 3rem 0; text-align: center;">
-    <img src="/img/practica-1/KIOSKO.png" alt="Kiosko Escolar" style="width: 100%; height: auto; max-height: 500px; object-fit: cover; border-radius: 16px; border: 1px solid var(--glass-border); box-shadow: 0 15px 35px rgba(0,0,0,0.4);">
+    <img src="/img/practica-1/kiosko.webp" alt="Kiosko Escolar" style="width: 100%; height: auto; max-height: 500px; object-fit: cover; border-radius: 16px; border: 1px solid var(--glass-border); box-shadow: 0 15px 35px rgba(0,0,0,0.4);">
     <p style="font-size: 0.9rem; color: var(--text-dim); margin-top: 0.8rem; font-style: italic;">Sector del kiosco escolar, punto de encuentro de los estudiantes durante los recreos.</p>
 </div>
 
@@ -66,7 +66,7 @@ El directivo también destacó el acompañamiento permanente a los estudiantes y
 > "La evaluación no se centra únicamente en los resultados, sino también en el recorrido realizado durante el año escolar."
 
 <div class="article-image-container" style="margin: 3rem 0; text-align: center;">
-    <img src="/img/practica-1/FOTO CON EL DIRECTOR.png" alt="Foto con el Director Orlando Lorenzo Alé" style="width: 100%; height: auto; max-height: 500px; object-fit: cover; border-radius: 16px; border: 1px solid var(--glass-border); box-shadow: 0 15px 35px rgba(0,0,0,0.4);">
+    <img src="/img/practica-1/foto-con-el-director.webp" alt="Foto con el Director Orlando Lorenzo Alé" style="width: 100%; height: auto; max-height: 500px; object-fit: cover; border-radius: 16px; border: 1px solid var(--glass-border); box-shadow: 0 15px 35px rgba(0,0,0,0.4);">
     <p style="font-size: 0.9rem; color: var(--text-dim); margin-top: 0.8rem; font-style: italic;">Encuentro y entrevista con el director del CEP N.º 36, Orlando Lorenzo Alé, durante la visita.</p>
 </div>
 
