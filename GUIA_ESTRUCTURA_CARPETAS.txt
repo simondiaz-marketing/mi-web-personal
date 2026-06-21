@@ -9,69 +9,70 @@ Es ideal para entender cómo funciona el proyecto "por detrás".
 1. LAS CARPETAS PRINCIPALES
 ------------------------------------------------------------------------
 /src (Source / Código Fuente)
-Es la carpeta más importante. Aquí vive todo el código de programación 
-y diseño que armaste. Todo lo que está aquí adentro es procesado por el 
-motor "Astro" antes de subirse a internet.
-  ├── /pages: Cada archivo aquí dentro se convierte automáticamente en 
+Es la carpeta más importante. Aquí se aloja todo el código de programación 
+y diseño del proyecto. Todo el contenido de este directorio es procesado por el 
+motor "Astro" antes de publicarse en internet.
+  ├── /pages: Cada archivo en este directorio se convierte automáticamente en 
   │           una página web. (Ej: "contacto.astro" crea la URL /contacto)
-  ├── /components: Son los "bloques de lego" reutilizables. Por ejemplo, 
+  ├── /components: Son los "bloques de construcción" reutilizables. Por ejemplo, 
   │                el menú de navegación que aparece en todas las páginas 
-  │                se programa una sola vez aquí y se reutiliza.
-  ├── /layouts: Son las "plantillas" o moldes generales. Tienen la 
-  │             estructura base (la cabecera, el pie de página) para que 
-  │             no tengas que repetir código en cada página.
-  ├── /styles: Aquí están las hojas de estilo (colores, tamaños, diseño).
+  │                se programa una sola vez aquí y se reutiliza a lo largo de la web.
+  ├── /layouts: Son las "plantillas" o moldes generales. Contienen la 
+  │             estructura base (la cabecera, el pie de página) para evitar 
+  │             la repetición de código en cada página individual.
+  ├── /styles: Aquí se ubican las hojas de estilo (colores, tamaños, diseño).
   └── /content: Aquí se guardan todos los textos largos y artículos 
-                (como las reseñas de tus prácticas) escritos en Markdown.
+                (como las reseñas académicas o narrativas) escritos en Markdown.
 
 /public
-Aquí va todo lo que NO es código de programación. Son los archivos 
-"estáticos" (imágenes, íconos, fuentes) que se suben directamente a 
-internet tal cual como están, sin ser procesados por Astro.
-  ├── /img: Todas las fotografías y logos de tu portafolio.
-  └── robots.txt: Un archivo de texto que le da instrucciones a los 
-                  motores de búsqueda (como Google) sobre tu sitio.
+Aquí se ubican los elementos que NO requieren procesamiento por parte de Astro. 
+Son los archivos "estáticos" (imágenes, íconos, fuentes) que se suben directamente 
+al servidor de internet tal cual como están.
+  ├── /img: Todas las fotografías, ilustraciones y logos del portafolio.
+  └── robots.txt: Un archivo de texto que otorga instrucciones a los 
+                  motores de búsqueda (como Google) sobre la indexación del sitio.
 
 /scripts
-Contiene pequeños programas automatizados que creamos para ayudarte en el 
-mantenimiento, como por ejemplo, el script que convierte automáticamente 
-las imágenes pesadas a formatos web ligeros.
+Contiene pequeños programas automatizados que asisten en el 
+mantenimiento técnico, como por ejemplo, un script encargado de convertir 
+imágenes pesadas a formatos web optimizados y ligeros.
 
 ------------------------------------------------------------------------
 2. LOS ARCHIVOS SUELTOS (Configuraciones)
 ------------------------------------------------------------------------
-- package.json: Es la "receta" de tu proyecto. Anota qué versión de 
-  Astro y qué plugins (como el del sitemap) necesitas para que el 
-  proyecto funcione.
-- package-lock.json: Es el registro exacto y candado de seguridad de 
-  las versiones instaladas.
+- package.json: Es el manifiesto del proyecto. Indica qué versión de 
+  Astro y qué librerías adicionales (como el generador de sitemap) se necesitan 
+  para que el proyecto funcione correctamente.
+- package-lock.json: Es el registro exacto y de seguridad que asegura
+  que las mismas versiones de las dependencias se instalen en cualquier entorno.
 - astro.config.mjs: Es el panel de control del motor Astro. Aquí se 
-  encienden o apagan características (como el mapa del sitio).
-- vercel.json: Son las reglas de seguridad que le damos al servidor 
-  de Vercel para proteger tu web contra ataques.
-- README.md: El documento de presentación oficial que se muestra en GitHub.
+  activan o configuran características adicionales (como el mapa del sitio).
+- vercel.json: Contiene las reglas de seguridad y de enrutamiento que se 
+  proporcionan al servidor de Vercel para el despliegue del sitio.
+- README.md: El documento de presentación oficial que se muestra al acceder 
+  al repositorio principal en GitHub.
 
 ------------------------------------------------------------------------
 3. DICCIONARIO DE EXTENSIONES (Tipos de Archivos)
 ------------------------------------------------------------------------
-¿Qué significa el punto-algo al final de cada archivo?
+¿Qué significa la extensión al final de cada archivo?
 
-- .astro : Son archivos exclusivos del motor Astro. Te permiten escribir 
-           HTML, CSS y JavaScript todo junto en un solo archivo de una 
-           forma súper ordenada.
-- .md    : Significa "Markdown". Es un formato para escribir textos y 
-           artículos de forma simple, usando asteriscos para las negritas 
-           o guiones para las listas, sin tener que escribir código HTML.
-- .css   : "Hojas de Estilo en Cascada". Son los archivos que le dicen 
-           a la computadora de qué color pintar algo, qué tan grande 
-           hacer la letra, o cómo animar un botón.
-- .js    : "JavaScript". Es la lógica. Le da interactividad a la web.
-- .mjs   : "Módulos de JavaScript". Es igual al .js, pero se usa para 
-           configuraciones avanzadas de servidores o scripts internos.
-- .json  : "JavaScript Object Notation". Son archivos que usan llaves {} 
-           para guardar información y configuraciones en formato de 
-           texto simple que cualquier programa puede leer (ej: Vercel).
-- .webp  : Es un formato de imagen creado por Google. Pesa muchísimo 
-           menos que un .png o .jpg pero mantiene la misma calidad, 
-           haciendo que tu web cargue súper rápido.
+- .astro : Archivos exclusivos del motor Astro. Permiten escribir 
+           HTML, CSS y JavaScript de manera combinada y estructurada en 
+           un único archivo de fácil lectura.
+- .md    : Significa "Markdown". Es un formato de texto enriquecido que
+           permite redactar artículos con formato (negritas, enlaces, listas) 
+           de forma sencilla sin necesidad de saber programar en HTML.
+- .css   : "Hojas de Estilo en Cascada". Son los archivos responsables de
+           definir los colores, tipografías, disposición y diseño visual de la web.
+- .js    : "JavaScript". Es el lenguaje de programación que otorga 
+           interactividad y comportamiento dinámico a la página.
+- .mjs   : "Módulos de JavaScript". Es una variante de JavaScript utilizada 
+           principalmente para configuraciones internas de servidores o scripts.
+- .json  : "JavaScript Object Notation". Son archivos estructurados que utilizan 
+           llaves {} para almacenar información y configuraciones en texto 
+           simple, legibles tanto por humanos como por sistemas informáticos.
+- .webp  : Es un formato de imagen optimizado para la web. Pesa significativamente 
+           menos que un archivo .png o .jpg manteniendo una calidad visual similar, 
+           lo que asegura tiempos de carga mucho más rápidos.
 ========================================================================
