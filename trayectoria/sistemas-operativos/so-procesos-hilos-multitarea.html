@@ -42,7 +42,10 @@
             padding: 0 2rem;
         }
 
-
+        .logo {
+            width: 120px;
+            visibility: hidden;
+        }
 
         /* Hero Section */
         header.hero {
@@ -374,7 +377,7 @@
     <!-- Navegación Global -->
     <nav> 
         <div class="container nav-container"> 
-            <div class="logo">SIMÓN DIAZ</div> 
+            <div class="logo">SIMÓN DIAZ</div>
             <ul class="nav-links"> 
                 <li><a href="/">Inicio</a></li> 
                 <li><a href="/sobre-mi">Sobre Mí</a></li> 
@@ -397,18 +400,41 @@
         </div> 
     </div>
 
-    <!-- Encabezado Estándar de Artículo -->
-    <div class="article-content" style="padding-top: 8rem; max-width: 800px; margin: 0 auto; padding-bottom: 2rem;"> 
-        <a href="javascript:history.back()" class="back-link" style="color: var(--accent-primary); text-decoration: none; font-weight: 600;">&larr; Volver</a> 
-        <header class="article-header" style="margin-top: 2rem; margin-bottom: 2rem;"> 
-            <div class="badge subject-badge" style="display: inline-block; padding: 0.4rem 0.8rem; background: rgba(0, 242, 255, 0.1); color: var(--accent-primary); border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem;">Sistemas Operativos</div> 
-            <h1 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Sistemas Operativos - Tema 7: Procesos e Hilos</h1> 
-            <div class="author-info" style="display: flex; align-items: center; gap: 1rem;"> 
-                <img src="/assets/img/perfil.jpg" alt="Simón Diaz" class="author-img" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;"> 
-                <div> <strong style="display: block;">Simón Diaz</strong> <span style="font-size: 0.9rem; color: var(--text-dim);">Publicado el 24 de junio de 2026</span> </div> 
-            </div> 
-        </header> 
-        <div class="article-body">
+    <!-- Sub-encabezado del Artículo -->
+    <div class="article-brand-header">
+        <div class="container article-brand-container">
+            <!-- Por favor, asegúrate de que el nombre del archivo de la imagen sea 'logo.png' o cambia el src aquí -->
+            <img src="logo.png" alt="Logo Institución" style="height: 75px; max-width: 250px; object-fit: contain;">
+            <div
+                style="font-size: 1.4rem; font-weight: 800; background: linear-gradient(to right, var(--accent-secondary), #0033aa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 1px;">
+                Sistemas Operativos</div>
+        </div>
+    </div>
+
+    <!-- Hero Section / Portada -->
+    <header class="hero container fade-in" style="padding-top: 60px; padding-bottom: 80px;">
+        <div class="portada-formal"
+            style="background: var(--card-bg); border: 1px solid var(--glass-border); padding: 3rem; border-radius: 16px; backdrop-filter: blur(10px); max-width: 800px; margin: 0 auto; text-align: left; color: var(--text-dim); font-size: 1.15rem; line-height: 2;">
+            <h1
+                style="text-align: center; font-size: 2rem; font-weight: 800; color: var(--text-main); margin-bottom: 2rem; background: none; -webkit-text-fill-color: var(--text-main); letter-spacing: 1px;">
+                INSTITUTO SUPERIOR "ANTONIO RUIZ DE MONTOYA"</h1>
+
+            <p style="margin-bottom: 1rem;">Carrera: <strong style="color: var(--text-main);">Profesorado de Educación
+                    Secundaria en Tecnologías de la Información y la Comunicación</strong></p>
+            <p style="margin-bottom: 1rem;">Asignatura: <span style="color: var(--text-main);">Sistemas
+                    Operativos</span></p>
+            <p style="margin-bottom: 1rem;">Docente: <span style="color: var(--text-main);">Ramirez, Sebastián</span>
+            </p>
+            <p style="margin-bottom: 1.5rem;">Estudiante: <span style="color: var(--text-main);">Diaz, Simón</span></p>
+
+            <div style="text-align: center;">
+                <p style="font-size: 1.15rem; margin-top: 1.5rem;">Producción de contenido digital: <br><span style="color: var(--accent-primary); font-size: 1.3rem; font-weight: bold; letter-spacing: 1px;">"Hilos, procesos y
+                        multitarea"</span></p>
+            </div>
+        </div>
+    </header>
+
+    <!-- REQUISITO 1: Portada con datos institucionales (Cumplido arriba en el Header) -->
 
     <!-- REQUISITO 2: Objetivos del recurso -->
     <section id="objetivos" class="container fade-in">
@@ -621,9 +647,6 @@
             </ul>
         </div>
     </section>
-
-        </div>
-    </div>
 
     <!-- Footer -->
     <footer>
