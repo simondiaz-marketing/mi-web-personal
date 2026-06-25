@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistemas Operativos - Tema 7: Procesos e Hilos</title>
+
+    <!-- Fuente Outfit del proyecto original -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- ESTILOS CLONADOS DE TU PROYECTO --- */
+        :root {
+            --bg-color: #050505;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --accent-primary: #00f2ff;
+            --accent-secondary: #7000ff;
+            --text-main: #ffffff;
+            --text-dim: #a0a0a0;
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Nav y Cabecera */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(240, 245, 255, 0.95);
+            /* Fondo claro para contrastar el logo azul */
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
+            z-index: 1000;
+            padding: 0.8rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Hero Section */
+        header.hero {
+            padding: 150px 0 100px;
+            text-align: center;
+            position: relative;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 800;
+            background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+        }
+
+        .institutional-data {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            padding: 1.5rem;
+            border-radius: 16px;
+            display: inline-block;
+            backdrop-filter: blur(10px);
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+
+        .institutional-data span {
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--text-main);
+        }
+
+        /* Cards y Grid (Glassmorphism) */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            padding: 2.5rem;
+            border-radius: 20px;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 242, 255, 0.15);
+        }
+
+        .card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-primary);
+        }
+
+        .card p {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Highlight Box / Callout */
+        .callout {
+            margin: 4rem auto;
+            max-width: 900px;
+            padding: 2rem;
+            background: rgba(112, 0, 255, 0.06);
+            border: 1px solid rgba(112, 0, 255, 0.2);
+            border-radius: 20px;
+            text-align: left;
+        }
+
+        .callout h3 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .callout p {
+            font-size: 1.15rem;
+            color: var(--text-main);
+        }
+
+        /* Tabla de Comparación */
+        table {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+        }
+
+        thead {
+            background: rgba(0, 242, 255, 0.08);
+        }
+
+        th {
+            padding: 1.5rem;
+            text-align: left;
+            color: var(--accent-primary);
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-bottom: 2px solid var(--glass-border);
+        }
+
+        td {
+            padding: 1.5rem;
+            color: var(--text-dim);
+            border-bottom: 1px solid var(--glass-border);
+            font-size: 1.05rem;
+        }
+
+        tbody tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 0;
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-dim);
+            margin-top: 4rem;
+        }
+
+        /* Animaciones para el scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Estilos del Quiz Gamificado --- */
+        .quiz-container {
+            background: rgba(20, 20, 20, 0.6);
+            border: 2px solid var(--accent-primary);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 800px;
+            margin: 4rem auto;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-header {
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .quiz-header h3 {
+            color: var(--accent-primary);
+            font-size: 1.5rem;
+            margin-bottom: 0;
+        }
+
+        .score-display {
+            font-size: 1.2rem;
+            color: var(--accent-secondary);
+            font-weight: 700;
+        }
+
+        .question-text {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            min-height: 60px;
+            text-align: left;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .option-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            padding: 1.2rem;
+            border-radius: 12px;
+            color: var(--text-main);
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            text-align: left;
+        }
+
+        .option-btn:hover {
+            background: rgba(0, 242, 255, 0.1);
+            border-color: var(--accent-primary);
+            transform: scale(1.02);
+        }
+
+        .option-btn.correct {
+            background: rgba(0, 255, 100, 0.2);
+            border-color: #00ff64;
+            color: #00ff64;
+        }
+
+        .option-btn.incorrect {
+            background: rgba(255, 0, 50, 0.2);
+            border-color: #ff0032;
+            color: #ff0032;
+        }
+
+        .explanation-box {
+            display: none;
+            background: rgba(112, 0, 255, 0.1);
+            border-left: 4px solid var(--accent-secondary);
+            padding: 1.5rem;
+            border-radius: 0 12px 12px 0;
+            text-align: left;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .next-btn {
+            background: var(--accent-primary);
+            color: #000;
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 800;
+            border-radius: 50px;
+            cursor: pointer;
+            display: none;
+            margin: 0 auto;
+            transition: transform 0.3s ease;
+        }
+
+        .next-btn:hover {
+            transform: scale(1.05);
+            background: #fff;
+        }
+
+        .quiz-results {
+            display: none;
+        }
+
+        .quiz-results h2 {
+            margin-bottom: 1rem;
+            font-size: 3rem;
+            background: linear-gradient(to right, #00ff64, var(--accent-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .restart-btn {
+            background: transparent;
+            color: var(--accent-primary);
+            border: 2px solid var(--accent-primary);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            margin-top: 2rem;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .restart-btn:hover {
+            background: var(--accent-primary);
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar Minimalista -->
+    <nav>
+        <div class="container nav-container">
+            <!-- Por favor, asegúrate de que el nombre del archivo de la imagen sea 'logo.png' o cambia el src aquí -->
+            <img src="logo.png" alt="Logo Institución" style="height: 75px; max-width: 250px; object-fit: contain;">
+            <div
+                style="font-size: 1.4rem; font-weight: 800; background: linear-gradient(to right, var(--accent-secondary), #0033aa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 1px;">
+                Sistemas Operativos</div>
+        </div>
+    </nav>
+
+    <!-- Hero Section / Portada -->
+    <header class="hero container fade-in" style="padding-top: 120px; padding-bottom: 80px;">
+        <div class="portada-formal"
+            style="background: var(--card-bg); border: 1px solid var(--glass-border); padding: 3rem; border-radius: 16px; backdrop-filter: blur(10px); max-width: 800px; margin: 0 auto; text-align: left; color: var(--text-dim); font-size: 1.15rem; line-height: 2;">
+            <h1
+                style="text-align: center; font-size: 2rem; font-weight: 800; color: var(--text-main); margin-bottom: 2rem; background: none; -webkit-text-fill-color: var(--text-main); letter-spacing: 1px;">
+                INSTITUTO SUPERIOR "ANTONIO RUIZ DE MONTOYA"</h1>
+
+            <p style="margin-bottom: 1rem;">Carrera: <strong style="color: var(--text-main);">Profesorado de Educación
+                    Secundaria en Tecnologías de la Información y la Comunicación</strong></p>
+            <p style="margin-bottom: 1rem;">Asignatura: <span style="color: var(--text-main);">Sistemas
+                    Operativos</span></p>
+            <p style="margin-bottom: 1rem;">Docente: <span style="color: var(--text-main);">Ramirez, Sebastián</span>
+            </p>
+            <p style="margin-bottom: 1.5rem;">Estudiante: <span style="color: var(--text-main);">Diaz, Simón</span></p>
+
+            <div style="text-align: center;">
+                <p style="font-size: 1.15rem; margin-top: 1.5rem;">Producción de contenido digital: <br><span style="color: var(--accent-primary); font-size: 1.3rem; font-weight: bold; letter-spacing: 1px;">"Hilos, procesos y
+                        multitarea"</span></p>
+            </div>
+        </div>
+    </header>
+
+    <!-- REQUISITO 1: Portada con datos institucionales (Cumplido arriba en el Header) -->
+
+    <!-- REQUISITO 2: Objetivos del recurso -->
+    <section id="objetivos" class="container fade-in">
+        <h2>Objetivos del Recurso</h2>
+        <div class="grid">
+            <div class="card" style="padding: 1.5rem;">
+                <h3 style="font-size: 1.3rem;">🎯 Objetivo General</h3>
+                <p>Comprender qué son los hilos y los procesos, identificar sus diferencias y reconocer cómo la multitarea permite que un sistema operativo gestione varias actividades de manera eficiente.</p>
+            </div>
+            <div class="card" style="padding: 1.5rem;">
+                <h3 style="font-size: 1.3rem;">💡 Objetivos Específicos</h3>
+                <ul style="margin-left: 1.5rem; color: var(--text-dim); font-size: 1.1rem; line-height: 1.8;">
+                    <li>Definir el concepto de multitarea mediante ejemplos de la vida cotidiana.</li>
+                    <li>Comprender qué es un proceso dentro de un sistema operativo.</li>
+                    <li>Reconocer qué es un hilo y cuál es su función dentro de un proceso.</li>
+                    <li>Identificar las principales diferencias entre procesos e hilos.</li>
+                    <li>Relacionar los conceptos estudiados con situaciones reales de uso de una computadora.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- REQUISITO 4: Ejemplos o casos prácticos -->
+    <section id="multitarea" class="container fade-in" style="margin-top: 4rem;">
+        <h2>El Funcionamiento de la Multitarea</h2>
+        <div class="callout">
+            <h3>🎧 + 🎮 Caso Práctico: El Ejemplo Cotidiano</h3>
+            <p>Imagina que estás jugando a tu videojuego favorito, escuchando música en Spotify y conversando con tus amigos mediante Discord.</p>
+            <br>
+            <p>Aunque parecen actividades independientes, todas están funcionando al mismo tiempo en tu computadora.</p>
+            <br>
+            <p>La <strong>multitarea</strong> es la capacidad que tiene el Sistema Operativo para gestionar varios programas de manera que el usuario perciba que funcionan simultáneamente. Para lograrlo, el sistema administra el uso del procesador, la memoria y otros recursos, permitiendo que cada programa pueda realizar sus tareas sin interferir con los demás.</p>
+            <br>
+            <p>Gracias a la multitarea podemos navegar por Internet, escuchar música, editar documentos y participar en videollamadas sin necesidad de cerrar una aplicación para utilizar otra.</p>
+        </div>
+    </section>
+
+    <!-- Sección: Procesos e Hilos (Las Fábricas y los Trabajadores) -->
+    <section id="procesos-hilos" class="container">
+        <div class="grid" style="grid-template-columns: 1fr;">
+            <!-- Proceso -->
+            <div class="card fade-in">
+                <div class="icon">⚙️</div>
+                <h3>¿Qué es un Proceso?</h3>
+                <p>Un <strong>proceso</strong> es un programa que se encuentra en ejecución.</p>
+                <p>Cuando abrimos una aplicación, el Sistema Operativo crea un proceso y le asigna los recursos necesarios para funcionar, como memoria, tiempo de procesador y acceso a dispositivos.</p>
+                <p>Por ejemplo:</p>
+                <ul style="margin-left: 2rem; color: var(--text-dim); margin-bottom: 1rem; line-height: 1.8;">
+                    <li>Spotify es un proceso.</li>
+                    <li>Discord es otro proceso.</li>
+                    <li>Un videojuego es otro proceso diferente.</li>
+                </ul>
+                <p>Cada proceso dispone de su propio espacio de memoria y trabaja de forma independiente respecto de los demás.</p>
+                
+                <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(0, 242, 255, 0.05); border-left: 4px solid var(--accent-primary); border-radius: 0 8px 8px 0;">
+                    <h4 style="color: var(--accent-primary); font-size: 1.2rem; margin-bottom: 0.5rem;">Analogía: La Fábrica</h4>
+                    <p>Podemos imaginar un proceso como una fábrica completa.</p>
+                    <p>Cada fábrica posee:</p>
+                    <ul style="margin-left: 2rem; color: var(--text-dim); margin-bottom: 1rem; line-height: 1.8;">
+                        <li>Sus propias instalaciones.</li>
+                        <li>Sus propios recursos.</li>
+                        <li>Su propio espacio de trabajo.</li>
+                    </ul>
+                    <p>Si una fábrica tiene un problema y deja de funcionar, las demás continúan trabajando normalmente porque son independientes entre sí.</p>
+                    <p>De manera similar, si una aplicación presenta un error, normalmente las demás aplicaciones continúan funcionando porque cada proceso posee su propio espacio de memoria aislado.</p>
+                </div>
+            </div>
+
+            <!-- Hilo -->
+            <div class="card fade-in">
+                <div class="icon">🧵</div>
+                <h3>¿Qué es un Hilo (Thread)?</h3>
+                <p>Un <strong>hilo</strong> es la unidad básica de ejecución dentro de un proceso.</p>
+                <p>Un proceso puede estar formado por uno o varios hilos que trabajan de manera coordinada para realizar distintas tareas.</p>
+                <p>Mientras el proceso representa el programa completo, los hilos representan las actividades específicas que se ejecutan dentro de ese programa.</p>
+                
+                <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(112, 0, 255, 0.05); border-left: 4px solid var(--accent-secondary); border-radius: 0 8px 8px 0;">
+                    <h4 style="color: var(--accent-secondary); font-size: 1.2rem; margin-bottom: 0.5rem;">Analogía: Los Trabajadores de la Fábrica</h4>
+                    <p>Si el proceso es una fábrica, los hilos son los trabajadores que realizan diferentes tareas dentro de ella.</p>
+                    <p>Por ejemplo, dentro de un videojuego moderno pueden existir:</p>
+                    <ul style="margin-left: 2rem; color: var(--text-dim); margin-bottom: 1rem; line-height: 1.8;">
+                        <li>Un hilo encargado de procesar las acciones del jugador.</li>
+                        <li>Un hilo encargado del audio.</li>
+                        <li>Un hilo encargado de los cálculos físicos del juego.</li>
+                        <li>Un hilo encargado de la comunicación por Internet.</li>
+                        <li>Un hilo encargado de determinadas tareas gráficas.</li>
+                    </ul>
+                    <p>Todos estos hilos pertenecen al mismo proceso y comparten los recursos que este tiene asignados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Comparativa -->
+    <section id="diferencias" class="container fade-in" style="margin-top: 4rem;">
+        <h2>Diferencias entre Procesos e Hilos</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Característica</th>
+                    <th>Proceso</th>
+                    <th>Hilo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Definición</strong></td>
+                    <td>Programa en ejecución.</td>
+                    <td>Unidad de ejecución dentro de un proceso.</td>
+                </tr>
+                <tr>
+                    <td><strong>Independencia</strong></td>
+                    <td>Funciona de manera independiente respecto de otros procesos.</td>
+                    <td>Depende del proceso al que pertenece.</td>
+                </tr>
+                <tr>
+                    <td><strong>Memoria</strong></td>
+                    <td>Posee su propio espacio de memoria.</td>
+                    <td>Comparte la memoria y recursos del proceso.</td>
+                </tr>
+                <tr>
+                    <td><strong>Consumo de recursos</strong></td>
+                    <td>Requiere más recursos para crearse y administrarse.</td>
+                    <td>Requiere menos recursos.</td>
+                </tr>
+                <tr>
+                    <td><strong>Fallos</strong></td>
+                    <td>Un error suele afectar únicamente al proceso involucrado.</td>
+                    <td>Un fallo grave puede afectar a todo el proceso.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Ejemplo Integrador -->
+    <section id="ejemplo-integrador" class="container fade-in" style="margin-top: 4rem;">
+        <h2>Por ejemplo</h2>
+        <div class="callout" style="background: rgba(0, 242, 255, 0.05); border-color: rgba(0, 242, 255, 0.2);">
+            <p>Supongamos que estás utilizando un navegador web.</p>
+            <p>El navegador constituye un proceso.</p>
+            <p>Dentro de ese proceso pueden existir múltiples hilos realizando diferentes tareas al mismo tiempo:</p>
+            <ul style="margin-left: 2rem; color: var(--text-dim); margin-top: 1rem; line-height: 1.8;">
+                <li>Un hilo carga el contenido de una página web.</li>
+                <li>Otro procesa las imágenes.</li>
+                <li>Otro reproduce contenido multimedia.</li>
+                <li>Otro responde a las acciones del usuario.</li>
+            </ul>
+            <br>
+            <p>Gracias a esta organización, el programa puede realizar varias actividades de forma eficiente y ofrecer una experiencia más fluida.</p>
+        </div>
+    </section>
+
+    <!-- Sección de Orden Jerárquico Suprimida -->
+
+    <!-- Conclusión -->
+    <section id="conclusion" class="container fade-in" style="margin-top: 4rem;">
+        <h2>Conclusión</h2>
+        <div class="card" style="text-align: left; max-width: 900px; margin: 0 auto; background: rgba(0, 255, 100, 0.05); border-color: rgba(0, 255, 100, 0.2);">
+            <p style="margin-bottom: 1rem; font-size: 1.15rem; color: var(--text-main);">Los procesos y los hilos son elementos fundamentales para el funcionamiento de los sistemas operativos modernos.</p>
+            <p style="margin-bottom: 1rem; font-size: 1.1rem; color: var(--text-dim);">Los procesos permiten ejecutar programas de forma organizada e independiente, mientras que los hilos posibilitan dividir el trabajo interno de un programa en tareas más pequeñas y eficientes.</p>
+            <p style="font-size: 1.1rem; color: var(--text-dim);">Por su parte, la multitarea permite que múltiples programas puedan funcionar simultáneamente desde la perspectiva del usuario, mejorando el aprovechamiento de los recursos del sistema y ofreciendo una experiencia más cómoda y productiva.</p>
+        </div>
+    </section>
+
+    <!-- Sección Gamificación: Cuestionario Interactivo -->
+    <section id="quiz-section" class="container fade-in">
+        <h2>Ponte a Prueba</h2>
+        <div class="quiz-container">
+            <!-- Interfaz del Quiz -->
+            <div id="quiz-interface">
+                <div class="quiz-header">
+                    <h3>Pregunta <span id="current-q-num">1</span>/5</h3>
+                    <div class="score-display">Puntos: <span id="score">0</span></div>
+                </div>
+
+                <div class="question-text" id="question">¿Cargando pregunta...?</div>
+
+                <div class="options-grid" id="options">
+                    <!-- Botones generados por JS -->
+                </div>
+
+                <div id="explanation-box" class="explanation-box">
+                    <strong>Explicación:</strong> <span id="explanation-text"></span>
+                </div>
+
+                <button class="next-btn" id="next-btn">Siguiente Pregunta ➔</button>
+            </div>
+
+            <!-- Pantalla de Resultados -->
+            <div id="quiz-results" class="quiz-results">
+                <h2>¡Completado!</h2>
+                <p style="font-size: 1.5rem; margin-bottom: 1rem;">Tu puntuación final es:</p>
+                <div style="font-size: 4rem; font-weight: 800; color: var(--accent-primary);" id="final-score">0</div>
+                <p id="feedback-msg" style="color: var(--text-dim); margin-top: 1rem; font-size: 1.2rem;"></p>
+                <button class="restart-btn" id="restart-btn">↻ Volver a intentar</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- REQUISITO 6: Bibliografía y fuentes consultadas -->
+    <section id="bibliografia" class="container fade-in" style="padding-bottom: 0;">
+        <h2>Bibliografía y Fuentes</h2>
+        <div class="card" style="max-width: 900px; margin: 0 auto; background: rgba(0,0,0,0.4);">
+            <ul
+                style="list-style-type: square; margin-left: 2rem; color: var(--text-dim); line-height: 2; font-size: 1.1rem;">
+                <li>Silberschatz, A., Galvin, P. B. y Gagne, G. (2018). <em>Fundamentos de Sistemas Operativos</em>
+                    (7.ª ed.). Wiley.</li>
+                <li>Castellanos, L. <em>Sistemas Operativos: una guía de estudios</em>.</li>
+                <li>Materiales de la cátedra Sistemas Operativos. Instituto Superior Antonio Ruiz de Montoya.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Recurso Educativo Digital creado para la asignatura Sistemas Operativos.</p>
+            <p style="margin-top: 10px;">&copy; 2026 Simón Diaz</p>
+        </div>
+    </footer>
+
+    <!-- Script simple para las micro-animaciones y lógica del cuestionario -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const elements = document.querySelectorAll('.fade-in');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+
+        /* --- Lógica del Quiz Gamificado (Actualizado a 5 preguntas y con feedback) --- */
+        const quizData = [
+            {
+                question: "En términos sencillos, ¿Qué es la Multitarea?",
+                options: [
+                    "Ejecutar un solo programa de forma extremadamente rápida.",
+                    "La capacidad del Sistema Operativo para ejecutar múltiples programas al mismo tiempo.",
+                    "Cuando el usuario conecta dos pantallas a la computadora."
+                ],
+                correct: 1,
+                explanation: "La multitarea es la gestión interna que hace el Sistema Operativo repartiendo el uso de la CPU y la memoria entre varias aplicaciones a la vez (como escuchar música y programar en simultáneo)."
+            },
+            {
+                question: "Si comparamos un Proceso con una Fábrica, ¿Qué vendrían a ser los Hilos (Threads)?",
+                options: [
+                    "Las máquinas industriales pesadas.",
+                    "El equipo de seguridad de la puerta.",
+                    "Los trabajadores dentro de la fábrica."
+                ],
+                correct: 2,
+                explanation: "Los hilos son las unidades de ejecución ('trabajadores') que operan utilizando los recursos y el espacio asignado al proceso ('fábrica')."
+            },
+            {
+                question: "La principal ventaja de utilizar Hilos en un programa en lugar de crear múltiples Procesos es:",
+                options: [
+                    "Que no consumen ningún tipo de energía eléctrica.",
+                    "Que son mucho más rápidos de crear y consumen menos memoria porque la comparten.",
+                    "Que evitan que la computadora se infecte con virus."
+                ],
+                correct: 1,
+                explanation: "Crear un proceso es 'pesado' para el sistema porque requiere asignarle su propio espacio de memoria aislado. Los hilos, al pertenecer al mismo proceso, ya comparten esa memoria, siendo mucho más ligeros y veloces de gestionar."
+            },
+            {
+                question: "A diferencia de los Procesos que están aislados entre sí, ¿qué característica tienen los Hilos que pertenecen al mismo programa?",
+                options: [
+                    "Comparten la misma memoria y los mismos recursos del sistema.",
+                    "Se ejecutan siempre en un núcleo de procesador diferente.",
+                    "Tienen que pedir permiso al usuario para ejecutarse."
+                ],
+                correct: 0,
+                explanation: "Esta es la diferencia fundamental. Un navegador (Proceso 1) y Spotify (Proceso 2) no pueden ver ni tocar la memoria del otro. Pero todos los hilos que trabajan dentro de Spotify sí comparten el mismo espacio de memoria."
+            },
+            {
+                question: "Si un navegador web (como Chrome) decide ejecutar cada pestaña como un 'Proceso' separado en lugar de usar simples 'Hilos', ¿por qué lo hace?",
+                options: [
+                    "Para que el disco duro gire más rápido.",
+                    "Por seguridad y estabilidad: si una pestaña falla, solo se cierra ese proceso y no todo el navegador.",
+                    "Para ahorrar la mayor cantidad de memoria RAM posible."
+                ],
+                correct: 1,
+                explanation: "La arquitectura multiproceso garantiza que si una página web tiene un error crítico (crash), la 'fábrica' que explota sea solo la de esa pestaña. Si usaran hilos y uno fallara gravemente, se cerraría el navegador completo."
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let hasAnswered = false;
+
+        const questionEl = document.getElementById('question');
+        const optionsEl = document.getElementById('options');
+        const nextBtn = document.getElementById('next-btn');
+        const currentQNum = document.getElementById('current-q-num');
+        const scoreEl = document.getElementById('score');
+        const explanationBox = document.getElementById('explanation-box');
+        const explanationText = document.getElementById('explanation-text');
+
+        const quizInterface = document.getElementById('quiz-interface');
+        const quizResults = document.getElementById('quiz-results');
+        const finalScore = document.getElementById('final-score');
+        const feedbackMsg = document.getElementById('feedback-msg');
+        const restartBtn = document.getElementById('restart-btn');
+
+        function loadQuestion() {
+            hasAnswered = false;
+            nextBtn.style.display = 'none';
+            explanationBox.style.display = 'none';
+
+            const currentQuiz = quizData[currentQuestionIndex];
+            currentQNum.innerText = currentQuestionIndex + 1;
+            questionEl.innerText = currentQuiz.question;
+            optionsEl.innerHTML = '';
+
+            currentQuiz.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.innerText = option;
+                button.classList.add('option-btn');
+                button.addEventListener('click', () => selectOption(button, index));
+                optionsEl.appendChild(button);
+            });
+        }
+
+        function selectOption(selectedBtn, selectedIndex) {
+            if (hasAnswered) return;
+            hasAnswered = true;
+
+            const currentQuiz = quizData[currentQuestionIndex];
+            const allButtons = optionsEl.querySelectorAll('.option-btn');
+
+            if (selectedIndex === currentQuiz.correct) {
+                selectedBtn.classList.add('correct');
+                score += 100; // 100 puntos por acierto
+                scoreEl.innerText = score;
+                selectedBtn.innerText = "✅ " + selectedBtn.innerText;
+            } else {
+                selectedBtn.classList.add('incorrect');
+                selectedBtn.innerText = "❌ " + selectedBtn.innerText;
+                // Marcar la correcta
+                allButtons[currentQuiz.correct].classList.add('correct');
+                allButtons[currentQuiz.correct].innerText = "✅ " + allButtons[currentQuiz.correct].innerText;
+            }
+
+            // Mostrar explicación
+            explanationText.innerText = currentQuiz.explanation;
+            explanationBox.style.display = 'block';
+
+            // Deshabilitar botones
+            allButtons.forEach(btn => btn.style.cursor = 'not-allowed');
+
+            nextBtn.style.display = 'block';
+        }
+
+        nextBtn.addEventListener('click', () => {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < quizData.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        });
+
+        function showResults() {
+            quizInterface.style.display = 'none';
+            quizResults.style.display = 'block';
+            finalScore.innerText = score;
+
+            if (score === 500) {
+                feedbackMsg.innerText = "¡Excelente! Has dominado los conceptos a la perfección. Puntuación perfecta. 🏆";
+            } else if (score >= 300) {
+                feedbackMsg.innerText = "¡Buen trabajo! Tienes una buena base, pero puedes repasar un poco más para ser un experto. 👍";
+            } else {
+                feedbackMsg.innerText = "Uy... te recomiendo volver a leer las secciones de arriba e intentarlo de nuevo. 📚";
+            }
+        }
+
+        restartBtn.addEventListener('click', () => {
+            currentQuestionIndex = 0;
+            score = 0;
+            scoreEl.innerText = score;
+            quizInterface.style.display = 'block';
+            quizResults.style.display = 'none';
+            loadQuestion();
+        });
+
+        // Iniciar el quiz
+        loadQuestion();
+    </script>
+</body>
+
+</html>

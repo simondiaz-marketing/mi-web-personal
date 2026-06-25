@@ -4,9 +4,20 @@ import { getCollection } from 'astro:content';
 import { sortArticlesByDate } from '../../utils/dates';
 
 const articulos = await getCollection('trayectoria');
-const subjectArticles = sortArticlesByDate(
-    articulos.filter(a => a.data.subject === 'Sistemas Operativos' || a.data.subject === 'Sistemas y Software')
-);
+let subjectArticles = articulos.filter(a => a.data.subject === 'Sistemas Operativos' || a.data.subject === 'Sistemas y Software');
+
+subjectArticles.push({
+    slug: 'sistemas-operativos/so-procesos-hilos-multitarea.html',
+    data: {
+        badge: 'Sistemas Operativos',
+        title: 'Sistemas Operativos - Tema 7: Procesos e Hilos',
+        date: '24 de junio de 2026',
+        description: 'Recurso Educativo Digital: Hilos, procesos y multitarea.',
+        subject: 'Sistemas Operativos'
+    }
+});
+
+subjectArticles = sortArticlesByDate(subjectArticles);
 ---
 
 <Layout title="Sistemas Operativos | Trayectoria Académica | Simón Diaz" description="Artículos desarrollados para la materia Sistemas Operativos por Simón Diaz.">
