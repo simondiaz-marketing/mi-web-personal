@@ -8,6 +8,7 @@
 
     <!-- Fuente Outfit del proyecto original -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/styles.css">
 
     <style>
         /* --- ESTILOS CLONADOS DE TU PROYECTO --- */
@@ -41,21 +42,18 @@
             padding: 0 2rem;
         }
 
-        /* Nav y Cabecera */
-        nav {
-            position: fixed;
-            top: 0;
+        /* Sub-Cabecera del Artículo */
+        .article-brand-header {
             width: 100%;
             background: rgba(240, 245, 255, 0.95);
             /* Fondo claro para contrastar el logo azul */
-            backdrop-filter: blur(15px);
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
-            z-index: 1000;
             padding: 0.8rem 0;
+            margin-top: 70px;
         }
 
-        .nav-container {
+        .article-brand-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -397,20 +395,45 @@
 </head>
 
 <body>
+    <!-- Navegación Global -->
+    <nav> 
+        <div class="container nav-container"> 
+            <div class="logo">SIMÓN DIAZ</div> 
+            <ul class="nav-links"> 
+                <li><a href="/">Inicio</a></li> 
+                <li><a href="/sobre-mi">Sobre Mí</a></li> 
+                <li><a href="/trayectoria">Trayectoria Académica</a></li> 
+                <li><a href="/videos">Videos</a></li> 
+                <li><a href="/contacto">Contacto</a></li> 
+                <li class="search-trigger-nav"><a href="javascript:void(0)" id="search-nav-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg></a></li> 
+            </ul> 
+        </div> 
+    </nav> 
 
-    <!-- Navbar Minimalista -->
-    <nav>
-        <div class="container nav-container">
+    <!-- Search Overlay --> 
+    <div id="search-overlay" class="search-overlay"> 
+        <div class="search-container"> 
+            <div class="search-header"> 
+                <input type="text" id="search-input" placeholder="Buscar artículos o videos..." autocomplete="off"> 
+                <button id="close-search">&times;</button> 
+            </div> 
+            <div id="search-results" class="search-results"></div> 
+        </div> 
+    </div>
+
+    <!-- Sub-encabezado del Artículo -->
+    <div class="article-brand-header">
+        <div class="container article-brand-container">
             <!-- Por favor, asegúrate de que el nombre del archivo de la imagen sea 'logo.png' o cambia el src aquí -->
             <img src="logo.png" alt="Logo Institución" style="height: 75px; max-width: 250px; object-fit: contain;">
             <div
                 style="font-size: 1.4rem; font-weight: 800; background: linear-gradient(to right, var(--accent-secondary), #0033aa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 1px;">
                 Sistemas Operativos</div>
         </div>
-    </nav>
+    </div>
 
     <!-- Hero Section / Portada -->
-    <header class="hero container fade-in" style="padding-top: 120px; padding-bottom: 80px;">
+    <header class="hero container fade-in" style="padding-top: 60px; padding-bottom: 80px;">
         <div class="portada-formal"
             style="background: var(--card-bg); border: 1px solid var(--glass-border); padding: 3rem; border-radius: 16px; backdrop-filter: blur(10px); max-width: 800px; margin: 0 auto; text-align: left; color: var(--text-dim); font-size: 1.15rem; line-height: 2;">
             <h1
@@ -828,6 +851,7 @@
         // Iniciar el quiz
         loadQuestion();
     </script>
+    <script type="module" src="/assets/js/main.js"></script>
 </body>
 
 </html>
