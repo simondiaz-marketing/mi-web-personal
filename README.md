@@ -20,40 +20,37 @@ El objetivo del portafolio es registrar de manera organizada el proceso de apren
 
 ```text
 Inicio
-├── Presentación general
 ├── Sobre mí
 ├── Trayectoria Académica
-│   ├── Primer Año
-│   ├── Segundo Año
-│   ├── Tercer Año
-│   └── Cuarto Año
-├── Actividades Extracurriculares
-├── Producción Digital y Divulgación Tecnológica
+│   ├── Práctica I
+│   ├── Sistemas Operativos
+│   ├── Taller de Oralidad, Lectura y Escritura
+│   └── Formación Complementaria
+├── Videos
 └── Contacto
 ```
 
 ## Tecnologías utilizadas
 
 ### Framework y Lenguajes
-- **Astro**: El motor principal que construye y ensambla la página web de forma ultra rápida.
 - **HTML5**: La estructura o el "esqueleto" del sitio (textos, imágenes, divisiones).
 - **CSS3 (Vanilla)**: La estética y el diseño visual (colores, fuentes y animaciones) construidos artesanalmente desde cero sin plantillas prefabricadas.
-- **JavaScript**: La lógica que le da interactividad y dinamismo a la página.
+- **JavaScript (Vanilla)**: La lógica que le da interactividad y dinamismo a la página, como el renderizado dinámico de artículos desde JSON.
 
 ### Herramientas de Desarrollo
 - **Antigravity IDE**: Entorno de desarrollo inteligente con inteligencia artificial que me asistió durante toda la programación.
 - **Git y GitHub**: Sistema de guardado histórico y copia de seguridad en la nube que registra paso a paso la evolución de todo el código.
 
 ### Despliegue y Alojamiento
-- **Vercel**: El servidor seguro en internet donde la página está almacenada y publicada para que el mundo entero pueda visitarla.
+- **Vercel / Cloudflare Pages / GitHub Pages**: Plataformas de alojamiento y despliegue automatizado donde la página está publicada.
 
 ## Características
 
 - Diseño responsive.
 - Navegación optimizada para dispositivos móviles y escritorio.
 - Integración de recursos multimedia.
-- Publicación de artículos y evidencias académicas.
-- Organización por años de cursada y espacios curriculares.
+- Publicación de artículos y evidencias académicas con renderizado dinámico.
+- Organización por espacios curriculares y categorías de contenido.
 - Enlaces a producciones digitales externas.
 
 
