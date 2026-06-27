@@ -1,7 +1,7 @@
 [
   {
     "title": "Presentación Inicial: Intereses, Motivaciones y Expectativas",
-    "url": "trayectoria/practica-1/presentacion-isarm.html",
+    "url": "/trayectoria/practica-1/presentacion-isarm",
     "subject": "Práctica I",
     "category": "Práctica Profesional",
     "description": "Mi perfil personal y profesional elaborado al inicio de Práctica I en abril de 2026. Filosofía de aprendizaje, personalidad y expectativas.",
@@ -9,7 +9,7 @@
   },
   {
     "title": "Autobiografía Escolar: una mirada sobre mi trayectoria educativa",
-    "url": "trayectoria/practica-1/autobiografia-escolar.html",
+    "url": "/trayectoria/practica-1/autobiografia-escolar",
     "subject": "Práctica I",
     "category": "Práctica Profesional",
     "description": "Reconstrucción reflexiva de mi trayectoria en la escuela secundaria BOP N.º 86 de Garupá. El impacto del contexto social y la influencia del vínculo docente.",
@@ -17,7 +17,7 @@
   },
   {
     "title": "Visita institucional al CEP N.º 36",
-    "url": "trayectoria/practica-1/visita-cep36.html",
+    "url": "/trayectoria/practica-1/visita-cep36",
     "subject": "Práctica I",
     "category": "Práctica Profesional",
     "description": "Análisis organizacional, pedagógico e infraestructura del establecimiento CEP N.º 36 en Posadas, surgido a partir de la entrevista al director Orlando Lorenzo Alé.",
@@ -25,7 +25,7 @@
   },
   {
     "title": "Video para la cuenta institucional de Instagram del Profesorado en TIC: Mark Zuckerberg",
-    "url": "trayectoria/actividades-complementarias/redes-sociales-comunicacion.html",
+    "url": "/trayectoria/actividades-complementarias/redes-sociales-comunicacion",
     "subject": "Formación Complementaria",
     "category": "Divulgación TIC",
     "description": "Producción de divulgación tecnológica sobre Mark Zuckerberg y la creación de Facebook, elaborada para la cuenta de Instagram del Profesorado en TIC.",
@@ -33,7 +33,7 @@
   },
   {
     "title": "XIX Jornadas de Estrategias de Aprendizaje",
-    "url": "trayectoria/actividades-complementarias/jornadas-estrategias-aprendizaje.html",
+    "url": "/trayectoria/actividades-complementarias/jornadas-estrategias-aprendizaje",
     "subject": "Formación Complementaria",
     "category": "Actividades Complementarias",
     "description": "Participación en las XIX Jornadas de Estrategias de Aprendizaje organizadas por el DAyO, orientadas al acompañamiento de estudiantes ingresantes en el ISARM.",
@@ -41,7 +41,7 @@
   },
   {
     "title": "Expo Montoya 2026: observación, análisis y comunicación en contextos educativos",
-    "url": "trayectoria/actividades-complementarias/expo-montoya-2026.html",
+    "url": "/trayectoria/actividades-complementarias/expo-montoya-2026",
     "subject": "Formación Complementaria",
     "category": "Observación Institucional",
     "description": "Análisis de la Expo Montoya 2026 desde una perspectiva pedagógica y tecnológica, integrando contenidos de Práctica I y TOLE.",
